@@ -22,6 +22,12 @@ We use [Yarn](https://yarnpkg.com) as our package manager. You can install it by
 npm install -g yarn
 ```
 
+Moreover, it must be a newer version of Yarn.
+
+```bash
+yarn set version berry
+```
+
 For boilerplate, we use [shadcn-svelte](https://www.shadcn-svelte.com/). Make sure to run:
 
 ```bash
