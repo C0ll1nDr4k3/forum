@@ -44,6 +44,7 @@
 		"@xyflow/svelte": "^0.1.26",
 		"init": "^0.1.2",
 		"lucide": "^0.471.0",
+		"postgres": "^3.4.5",
 		"shadcn-svelte": "^0.14.0"
 	}
 }
