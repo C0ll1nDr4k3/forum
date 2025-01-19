@@ -26,6 +26,9 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const DATABASE: string;
+	export const DATABASE_USERNAME: string;
+	export const DATABASE_PASSWORD: string;
 	export const NVM_INC: string;
 	export const COREPACK_ROOT: string;
 	export const PROJECT_CWD: string;
@@ -99,6 +102,9 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		DATABASE: string;
+		DATABASE_USERNAME: string;
+		DATABASE_PASSWORD: string;
 		NVM_INC: string;
 		COREPACK_ROOT: string;
 		PROJECT_CWD: string;

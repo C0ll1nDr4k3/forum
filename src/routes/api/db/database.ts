@@ -1,5 +1,7 @@
 import postgres from "postgres";
 
+import { DATABASE, DATABASE_USERNAME, DATABASE_PASSWORD } from "$env/static/private";
+
 type Config = {
 	host: string;
 	port: number;
@@ -10,11 +12,11 @@ type Config = {
 
 // Define the configuration for the Postgres connection
 const config: Config = {
-	host: "localhost", // Change this to your host
-	port: 5432, // Default Postgres port
-	database: "your_database_name", // Replace with your database name
-	user: "your_username", // Replace with your username
-	password: "your_password" // Replace with your password
+	host: "localhost",
+	port: 5432,
+	database: DATABASE,
+	user: DATABASE_USERNAME,
+	password: DATABASE_PASSWORD
 };
 
 // Initialize the connection
@@ -42,4 +44,6 @@ async function testConnection() {
 }
 
 // Run the test connection function
-testConnection().then((r) => console.log("Connection closed:", r));
+testConnection().then(() => {
+	console.log("Connection test complete.");
+});
