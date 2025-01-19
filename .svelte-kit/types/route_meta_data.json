@@ -3,7 +3,7 @@
 	"/api/map": [
 		"src/routes/api/map/+server.ts"
 	],
-	"/forum ": [],
+	"/forum": [],
 	"/map/directory": [],
 	"/map/graph": [],
 	"/map/tree": [],

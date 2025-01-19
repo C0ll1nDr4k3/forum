@@ -2,26 +2,28 @@
 	import { Map, MessageCircleQuestion, Search, Settings } from "lucide-svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 
+	let defaultMap = "graph";
+
 	// Menu items.
 	const items = [
 		{
 			title: "Map",
-			url: "#",
+			url: `/map/${defaultMap}`,
 			icon: Map
 		},
 		{
 			title: "Forum",
-			url: "#",
+			url: "/forum",
 			icon: MessageCircleQuestion
 		},
 		{
 			title: "Search",
-			url: "#",
+			url: "/search",
 			icon: Search
 		},
 		{
 			title: "Settings",
-			url: "#",
+			url: "/settings",
 			icon: Settings
 		}
 	];
