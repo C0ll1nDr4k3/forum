@@ -1,6 +1,11 @@
 import postgres from "postgres";
 
-import { DATABASE, DATABASE_USERNAME, DATABASE_PASSWORD } from "$env/static/private";
+import {
+	DATABASE_HOST,
+	DATABASE_NAME,
+	DATABASE_USERNAME,
+	DATABASE_PASSWORD
+} from "$env/static/private";
 
 type Config = {
 	host: string;
@@ -12,9 +17,9 @@ type Config = {
 
 // Define the configuration for the Postgres connection
 const config: Config = {
-	host: "localhost",
+	host: DATABASE_HOST,
 	port: 5432,
-	database: DATABASE,
+	database: DATABASE_NAME,
 	user: DATABASE_USERNAME,
 	password: DATABASE_PASSWORD
 };

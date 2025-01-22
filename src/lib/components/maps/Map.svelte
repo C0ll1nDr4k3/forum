@@ -4,7 +4,6 @@
 	import Tree from "$lib/components/maps/tree/Tree.svelte";
 	import Graph from "$lib/components/maps/graph/Graph.svelte";
 	import selected from "$lib/components/maps/MapSelector.svelte";
-
 </script>
 
 <MapSelector bind:selected />

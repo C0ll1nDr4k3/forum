@@ -1,12 +1,44 @@
 {
-	"/": [],
+	"/": [
+		"src/routes/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/api/catergory/[catergoryId]/threads": [
+		"src/routes/api/catergory/[catergoryId]/threads/+server.ts"
+	],
 	"/api/map": [
 		"src/routes/api/map/+server.ts"
 	],
-	"/forum": [],
-	"/map/directory": [],
-	"/map/graph": [],
-	"/map/tree": [],
-	"/search": [],
-	"/settings": []
+	"/api/posts": [
+		"src/routes/api/posts/+server.ts"
+	],
+	"/api/user/[username]": [
+		"src/routes/api/user/[username]/+server.ts"
+	],
+	"/auth/signIn": [
+		"src/routes/auth/signIn/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/auth/signOut": [
+		"src/routes/auth/signOut/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/forum": [
+		"src/routes/+layout.server.ts"
+	],
+	"/map/directory": [
+		"src/routes/+layout.server.ts"
+	],
+	"/map/graph": [
+		"src/routes/+layout.server.ts"
+	],
+	"/map/tree": [
+		"src/routes/+layout.server.ts"
+	],
+	"/search": [
+		"src/routes/+layout.server.ts"
+	],
+	"/settings": [
+		"src/routes/+layout.server.ts"
+	]
 }
