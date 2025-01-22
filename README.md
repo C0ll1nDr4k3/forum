@@ -32,8 +32,6 @@ For boilerplate, we use [shadcn-svelte](https://www.shadcn-svelte.com/). Make su
 
 ```
 yarn dlx sv add tailwindcss
-yarn install
-yarn dlx shadcn-svelte@latest init
 ```
 
 To install shadcn components, run:
