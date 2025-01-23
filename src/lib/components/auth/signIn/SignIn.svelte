@@ -3,11 +3,10 @@
 	import { SignIn } from "@auth/sveltekit/components";
 	import { Button } from "$lib/components/ui/button/index.js";
 </script>
+
 <SignIn
 	options={{
-		redirectTo: page.data.redirectTo
-			? `/${decodeURIComponent(page.data.redirectTo).slice(1)}`
-			: `/`
+		redirectTo: page.data.redirectTo ? `/${decodeURIComponent(page.data.redirectTo).slice(1)}` : `/`
 	}}
 	className="w-full"
 >
