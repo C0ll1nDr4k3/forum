@@ -4,7 +4,7 @@
 
 Our database's schema is defined by the following:
 
-```postgresql
+```sql
 CREATE TABLE users
 (
     user_id       SERIAL PRIMARY KEY,
@@ -88,7 +88,7 @@ CREATE TABLE private_messages
 
 For performance reasons, we utilize the following indexes:
 
-```postgresql
+```sql
 CREATE INDEX idx_threads_category_id ON threads (category_id);
 CREATE INDEX idx_posts_thread_id_created_at ON posts (thread_id, created_at);
 CREATE INDEX idx_thread_tags_tag_id ON thread_tags (tag_id);
@@ -96,7 +96,7 @@ CREATE INDEX idx_thread_tags_tag_id ON thread_tags (tag_id);
 
 For text search, we utilize the following index:
 
-```postgresql
+```sql
 ALTER TABLE posts
     ADD COLUMN tsv_content tsvector GENERATED ALWAYS AS (to_tsvector('english', content)) STORED;
 
@@ -107,7 +107,7 @@ CREATE INDEX idx_posts_tsv_content ON posts USING GIN (tsv_content);
 
 To Fetch Thread with Posts:
 
-```postgresql
+```sql
 SELECT t.thread_id,
        t.title,
        t.created_at,
@@ -124,7 +124,7 @@ ORDER BY p.created_at ASC;
 
 To Search Posts:
 
-```postgresql
+```sql
 SELECT p.post_id,
        p.content,
        p.created_at,
