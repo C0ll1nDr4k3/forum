@@ -51,3 +51,10 @@ For our graph components, we use [SvelteFlow](https://svelteflow.dev/). You can 
 ```
 yarn add @xyflow/svelte
 ```
+
+For auth, we use [Auth.js](https://authjs.dev/). You can install it by running:
+
+```
+yarn add @auth/sveltekit
+npx auth secret
+```
