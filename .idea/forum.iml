@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit" />
       <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/output/server/stylesheets" />
       <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/api/users" />
       <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/auth/sign-in" />
