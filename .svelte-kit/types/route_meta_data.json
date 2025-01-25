@@ -24,6 +24,7 @@
 		"src/routes/+layout.server.ts"
 	],
 	"/forum": [
+		"src/routes/forum/+page.ts",
 		"src/routes/+layout.server.ts"
 	],
 	"/map/directory": [

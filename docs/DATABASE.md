@@ -59,6 +59,7 @@ CREATE TABLE posts
     user_id        INT  REFERENCES users (user_id) ON DELETE SET NULL,
     parent_post_id INT REFERENCES posts (post_id) ON DELETE CASCADE,
     content        TEXT NOT NULL,
+    likes          INT                      DEFAULT 0,
     created_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -83,22 +84,9 @@ CREATE TABLE private_messages
     sent_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     is_read     BOOLEAN                  DEFAULT FALSE
 );
-
-CREATE TABLE tags
-(
-    tag_id SERIAL PRIMARY KEY,
-    name   VARCHAR(50) UNIQUE NOT NULL
-);
-
-CREATE TABLE thread_tags
-(
-    thread_id INT REFERENCES threads (thread_id) ON DELETE CASCADE,
-    tag_id    INT REFERENCES tags (tag_id) ON DELETE CASCADE,
-    PRIMARY KEY (thread_id, tag_id)
-);
 ```
 
-For performance reasons, we'' utilize the following indexes:
+For performance reasons, we utilize the following indexes:
 
 ```postgresql
 CREATE INDEX idx_threads_category_id ON threads (category_id);
@@ -106,7 +94,7 @@ CREATE INDEX idx_posts_thread_id_created_at ON posts (thread_id, created_at);
 CREATE INDEX idx_thread_tags_tag_id ON thread_tags (tag_id);
 ```
 
-For text search, we'll utilize the following index:
+For text search, we utilize the following index:
 
 ```postgresql
 ALTER TABLE posts

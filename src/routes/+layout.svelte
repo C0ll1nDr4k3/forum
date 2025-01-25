@@ -2,15 +2,13 @@
 	import "../app.css";
 
 	let { children } = $props();
+	import MainMenubar from "$lib/components/Menubar.svelte";
 
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import MainSidebar from "$lib/components/MainSidebar.svelte";
 </script>
 
-<Sidebar.Provider>
-	<MainSidebar />
-	<main>
-		<Sidebar.Trigger />
-		{@render children?.()}
-	</main>
-</Sidebar.Provider>
+<MainMenubar />
+<main>
+	{@render children?.()}
+</main>
+
