@@ -1,5 +1,5 @@
 import "clsx";
-import { j as rest_props, k as fallback, m as spread_attributes, x as attr, l as ensure_array_like, u as slot, v as bind_props, p as pop, a as push, e as escape_html, w as sanitize_props } from "../../../../chunks/index2.js";
+import { r as rest_props, j as fallback, k as spread_attributes, l as attr, h as ensure_array_like, m as slot, n as bind_props, p as pop, a as push, e as escape_html, o as sanitize_props } from "../../../../chunks/index2.js";
 import { p as page } from "../../../../chunks/index3.js";
 import "../../../../chunks/client.js";
 import { B as Button } from "../../../../chunks/button.js";

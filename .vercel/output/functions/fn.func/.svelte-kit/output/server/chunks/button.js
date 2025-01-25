@@ -1,4 +1,4 @@
-import { o as spread_attributes, t as clsx$1, c as bind_props, p as pop, a as push } from "./index2.js";
+import { k as spread_attributes, t as clsx$1, n as bind_props, p as pop, a as push } from "./index2.js";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";

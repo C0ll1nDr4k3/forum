@@ -1,7 +1,6 @@
 import "clsx";
-import { w as writable } from "./index4.js";
-import "./exports.js";
-import { n as noop } from "./index2.js";
+import { w as writable } from "./exports.js";
+import { w as noop } from "./index2.js";
 const SNAPSHOT_KEY = "sveltekit:snapshot";
 const SCROLL_KEY = "sveltekit:scroll";
 function notifiable_store(value) {

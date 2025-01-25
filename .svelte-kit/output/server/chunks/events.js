@@ -1,4 +1,4 @@
-import { b as set_active_reaction, d as set_active_effect, f as active_reaction, g as active_effect, h as define_property, i as is_array, q as queue_micro_task } from "./index2.js";
+import { s as set_active_reaction, b as set_active_effect, d as active_reaction, f as active_effect, g as define_property, i as is_array, q as queue_micro_task } from "./index2.js";
 function without_reactive_context(fn) {
   var previous_reaction = active_reaction;
   var previous_effect = active_effect;

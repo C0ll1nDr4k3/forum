@@ -1,4 +1,4 @@
-import { h as active_reaction, A as is_runes, D as DERIVED, B as BLOCK_EFFECT, C as derived_sources, E as state_unsafe_mutation, F as increment_write_version, G as DIRTY, H as set_signal_status, I as CLEAN, U as UNOWNED, J as schedule_effect, M as MAYBE_DIRTY, i as active_effect, K as BRANCH_EFFECT, R as ROOT_EFFECT, L as untracked_writes, N as set_untracked_writes, O as HYDRATION_ERROR, P as get_next_sibling, Q as init_operations, S as get_first_child, T as HYDRATION_START, V as HYDRATION_END, W as hydration_failed, X as clear_text_content, Y as array_from, Z as component_root, _ as is_passive_event, $ as create_text, a0 as branch, a1 as push, a2 as pop, a3 as component_context, a4 as get, a5 as LEGACY_PROPS, a6 as flush_sync, j as define_property, a7 as render, a as push$1, a8 as setContext, p as pop$1 } from "./index2.js";
+import { d as active_reaction, A as is_runes, D as DERIVED, B as BLOCK_EFFECT, C as derived_sources, E as state_unsafe_mutation, F as increment_write_version, G as DIRTY, H as set_signal_status, I as CLEAN, U as UNOWNED, J as schedule_effect, M as MAYBE_DIRTY, f as active_effect, K as BRANCH_EFFECT, R as ROOT_EFFECT, L as untracked_writes, N as set_untracked_writes, O as HYDRATION_ERROR, P as get_next_sibling, Q as init_operations, S as get_first_child, T as HYDRATION_START, V as HYDRATION_END, W as hydration_failed, X as clear_text_content, Y as array_from, Z as component_root, _ as is_passive_event, $ as create_text, a0 as branch, a1 as push, a2 as pop, a3 as component_context, a4 as get, a5 as LEGACY_PROPS, a6 as flush_sync, g as define_property, a7 as render, a as push$1, a8 as setContext, p as pop$1 } from "./index2.js";
 import { a as safe_equals, e as equals } from "./equality.js";
 import { a as all_registered_events, r as root_event_handles, h as handle_event_propagation } from "./events.js";
 import "clsx";
@@ -500,7 +500,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1xjc322"
+  version_hash: "1a57vps"
 };
 async function get_hooks() {
   let handle;

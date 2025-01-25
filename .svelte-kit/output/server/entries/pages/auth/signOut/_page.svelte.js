@@ -1,6 +1,6 @@
 import "clsx";
 import "../../../../chunks/client.js";
-import { j as rest_props, k as fallback, m as spread_attributes, x as attr, u as slot, v as bind_props, p as pop, a as push, w as sanitize_props } from "../../../../chunks/index2.js";
+import { r as rest_props, j as fallback, k as spread_attributes, l as attr, m as slot, n as bind_props, p as pop, a as push, o as sanitize_props } from "../../../../chunks/index2.js";
 function SignOut($$payload, $$props) {
   const $$sanitized_props = sanitize_props($$props);
   const $$restProps = rest_props($$sanitized_props, ["className", "options", "signOutPage"]);

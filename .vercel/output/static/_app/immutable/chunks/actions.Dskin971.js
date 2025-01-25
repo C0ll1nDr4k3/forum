@@ -1,1 +1,0 @@
-import{j as c,u as o,k as i,J as d,K as u}from"./runtime.QVh8-8dV.js";function m(e,n,f){c(()=>{var r=o(()=>n(e,f==null?void 0:f())||{});if(f&&(r!=null&&r.update)){var a=!1,t={};i(()=>{var s=f();d(s),a&&u(t,s)&&(t=s,r.update(s))}),a=!0}if(r!=null&&r.destroy)return()=>r.destroy()})}export{m as a};

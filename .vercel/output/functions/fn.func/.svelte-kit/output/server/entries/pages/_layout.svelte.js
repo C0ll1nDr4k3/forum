@@ -1,161 +1,117 @@
-import { clsx as clsx$1 } from "clsx";
-import { a8 as setContext, ah as once, y as getContext, a as push, o as spread_attributes, t as clsx, c as bind_props, p as pop, ag as hasContext, ai as getAllContexts, z as spread_props, aj as copy_payload, ak as assign_payload, aa as stringify, v as slot, w as sanitize_props, x as attr, b as ensure_array_like, e as escape_html } from "../../chunks/index2.js";
-import parse from "style-to-object";
-import { computePosition, offset, shift, limitShift, flip, size, arrow, hide, autoUpdate } from "@floating-ui/dom";
-import { c as cn, B as Button } from "../../chunks/button.js";
+import { clsx } from "clsx";
+import { z as spread_props, m as slot, o as sanitize_props, ah as once, ag as hasContext, u as getContext, a8 as setContext, a as push, p as pop, ai as getAllContexts, n as bind_props, k as spread_attributes, aj as copy_payload, ak as assign_payload, h as ensure_array_like, l as attr, e as escape_html } from "../../chunks/index2.js";
 import { tv } from "tailwind-variants";
-import { o as on } from "../../chunks/events.js";
+import { c as cn } from "../../chunks/button.js";
+import parse from "style-to-object";
 import { t as tick } from "../../chunks/index-server.js";
-import { I as Icon } from "../../chunks/Icon.js";
-class IsMobile {
-  #current = false;
-  constructor() {
-  }
-  get current() {
-    return this.#current;
-  }
-}
-const SIDEBAR_COOKIE_NAME = "sidebar:state";
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
-class SidebarState {
-  props;
-  #open = once(() => this.props.open());
-  get open() {
-    return this.#open();
-  }
-  openMobile = false;
-  setOpen;
-  #isMobile;
-  #state = once(() => this.open ? "expanded" : "collapsed");
-  get state() {
-    return this.#state();
-  }
-  constructor(props) {
-    this.setOpen = props.setOpen;
-    this.#isMobile = new IsMobile();
-    this.props = props;
-  }
-  // Convenience getter for checking if the sidebar is mobile
-  // without this, we would need to use `sidebar.isMobile.current` everywhere
-  get isMobile() {
-    return this.#isMobile.current;
-  }
-  // Event handler to apply to the `<svelte:window>`
-  handleShortcutKeydown = (e) => {
-    if (e.key === SIDEBAR_KEYBOARD_SHORTCUT && (e.metaKey || e.ctrlKey)) {
-      e.preventDefault();
-      this.toggle();
+import { computePosition, offset, shift, limitShift, flip, size, arrow, hide, autoUpdate } from "@floating-ui/dom";
+import { I as Icon, W as Waypoints, F as Folder_tree, N as Network } from "../../chunks/waypoints.js";
+import { o as on } from "../../chunks/events.js";
+function Map$1($$payload, $$props) {
+  const $$sanitized_props = sanitize_props($$props);
+  const iconNode = [
+    [
+      "path",
+      {
+        "d": "M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"
+      }
+    ],
+    ["path", { "d": "M15 5.764v15" }],
+    ["path", { "d": "M9 3.236v15" }]
+  ];
+  Icon($$payload, spread_props([
+    { name: "map" },
+    $$sanitized_props,
+    {
+      iconNode,
+      children: ($$payload2) => {
+        $$payload2.out += `<!---->`;
+        slot($$payload2, $$props, "default", {}, null);
+        $$payload2.out += `<!---->`;
+      },
+      $$slots: { default: true }
     }
-  };
-  setOpenMobile = (value) => {
-    this.openMobile = value;
-  };
-  toggle = () => {
-    return this.#isMobile.current ? this.openMobile = !this.openMobile : this.setOpen(!this.open);
-  };
+  ]));
 }
-const SYMBOL_KEY = "scn-sidebar";
-function setSidebar(props) {
-  return setContext(Symbol.for(SYMBOL_KEY), new SidebarState(props));
+function Message_circle_question($$payload, $$props) {
+  const $$sanitized_props = sanitize_props($$props);
+  const iconNode = [
+    [
+      "path",
+      { "d": "M7.9 20A9 9 0 1 0 4 16.1L2 22Z" }
+    ],
+    [
+      "path",
+      { "d": "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" }
+    ],
+    ["path", { "d": "M12 17h.01" }]
+  ];
+  Icon($$payload, spread_props([
+    { name: "message-circle-question" },
+    $$sanitized_props,
+    {
+      iconNode,
+      children: ($$payload2) => {
+        $$payload2.out += `<!---->`;
+        slot($$payload2, $$props, "default", {}, null);
+        $$payload2.out += `<!---->`;
+      },
+      $$slots: { default: true }
+    }
+  ]));
 }
-function useSidebar() {
-  return getContext(Symbol.for(SYMBOL_KEY));
+function Search($$payload, $$props) {
+  const $$sanitized_props = sanitize_props($$props);
+  const iconNode = [
+    [
+      "circle",
+      { "cx": "11", "cy": "11", "r": "8" }
+    ],
+    ["path", { "d": "m21 21-4.3-4.3" }]
+  ];
+  Icon($$payload, spread_props([
+    { name: "search" },
+    $$sanitized_props,
+    {
+      iconNode,
+      children: ($$payload2) => {
+        $$payload2.out += `<!---->`;
+        slot($$payload2, $$props, "default", {}, null);
+        $$payload2.out += `<!---->`;
+      },
+      $$slots: { default: true }
+    }
+  ]));
 }
-function Sidebar_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out += `<div${spread_attributes({
-    "data-sidebar": "content",
-    class: clsx(cn("flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden", className)),
-    ...restProps
-  })}>`;
-  children?.($$payload);
-  $$payload.out += `<!----></div>`;
-  bind_props($$props, { ref });
-  pop();
+function Settings($$payload, $$props) {
+  const $$sanitized_props = sanitize_props($$props);
+  const iconNode = [
+    [
+      "path",
+      {
+        "d": "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+      }
+    ],
+    [
+      "circle",
+      { "cx": "12", "cy": "12", "r": "3" }
+    ]
+  ];
+  Icon($$payload, spread_props([
+    { name: "settings" },
+    $$sanitized_props,
+    {
+      iconNode,
+      children: ($$payload2) => {
+        $$payload2.out += `<!---->`;
+        slot($$payload2, $$props, "default", {}, null);
+        $$payload2.out += `<!---->`;
+      },
+      $$slots: { default: true }
+    }
+  ]));
 }
-function Sidebar_group_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out += `<div${spread_attributes({
-    "data-sidebar": "group-content",
-    class: clsx(cn("w-full text-sm", className)),
-    ...restProps
-  })}>`;
-  children?.($$payload);
-  $$payload.out += `<!----></div>`;
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_group_label($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    children,
-    child,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const mergedProps = {
-    class: cn("text-sidebar-foreground/70 ring-sidebar-ring flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium outline-none transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0", className),
-    "data-sidebar": "group-label",
-    ...restProps
-  };
-  if (child) {
-    $$payload.out += "<!--[-->";
-    child($$payload, { props: mergedProps });
-    $$payload.out += `<!---->`;
-  } else {
-    $$payload.out += "<!--[!-->";
-    $$payload.out += `<div${spread_attributes({ ...mergedProps })}>`;
-    children?.($$payload);
-    $$payload.out += `<!----></div>`;
-  }
-  $$payload.out += `<!--]-->`;
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_group($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out += `<div${spread_attributes({
-    "data-sidebar": "group",
-    class: clsx(cn("relative flex w-full min-w-0 flex-col p-2", className)),
-    ...restProps
-  })}>`;
-  children?.($$payload);
-  $$payload.out += `<!----></div>`;
-  bind_props($$props, { ref });
-  pop();
-}
-function isFunction(value) {
+function isFunction$1(value) {
   return typeof value === "function";
 }
 function isObject(value) {
@@ -220,7 +176,7 @@ function boxWith(getter, setter) {
 }
 function boxFrom(value) {
   if (box.isBox(value)) return value;
-  if (isFunction(value)) return box.with(value);
+  if (isFunction$1(value)) return box.with(value);
   return box(value);
 }
 function boxFlatten(boxes) {
@@ -420,11 +376,11 @@ function mergeProps(...args) {
         const aIsClassValue = isClassValue(a);
         const bIsClassValue = isClassValue(b);
         if (aIsClassValue && bIsClassValue) {
-          result[key] = clsx$1(a, b);
+          result[key] = clsx(a, b);
         } else if (aIsClassValue) {
-          result[key] = clsx$1(a);
+          result[key] = clsx(a);
         } else if (bIsClassValue) {
-          result[key] = clsx$1(b);
+          result[key] = clsx(b);
         }
       } else if (key === "style") {
         const aIsObject = typeof a === "object";
@@ -553,6 +509,9 @@ function useActiveElement(opts = {}) {
   });
 }
 useActiveElement();
+function isFunction(value) {
+  return typeof value === "function";
+}
 class ElementSize {
   #size = { width: 0, height: 0 };
   constructor(node, options = { box: "border-box" }) {
@@ -570,6 +529,32 @@ class ElementSize {
   }
   get height() {
     return this.#size.height;
+  }
+}
+function extract(value, defaultValue) {
+  if (isFunction(value)) {
+    const getter = value;
+    return getter() ?? defaultValue ?? getter();
+  }
+  return value ?? defaultValue ?? value;
+}
+class IsFocusWithin {
+  #node;
+  #target = once(() => extract(this.#node));
+  #activeElement;
+  constructor(node, options = {}) {
+    this.#node = node;
+    this.#activeElement = useActiveElement({
+      document: options.document,
+      window: options.window
+    });
+  }
+  #current = once(() => {
+    if (!this.#target() || !this.#activeElement.current) return false;
+    return this.#target().contains(this.#activeElement.current);
+  });
+  get current() {
+    return this.#current();
   }
 }
 class Context {
@@ -639,13 +624,57 @@ class Context {
 function getDataOpenClosed(condition) {
   return condition ? "open" : "closed";
 }
+function getAriaDisabled(condition) {
+  return condition ? "true" : "false";
+}
+function getAriaExpanded(condition) {
+  return condition ? "true" : "false";
+}
 function getDataDisabled(condition) {
   return condition ? "" : void 0;
 }
+function getAriaOrientation(orientation) {
+  return orientation;
+}
+const ARROW_DOWN = "ArrowDown";
+const ARROW_LEFT = "ArrowLeft";
+const ARROW_RIGHT = "ArrowRight";
+const ARROW_UP = "ArrowUp";
+const END = "End";
 const ENTER = "Enter";
 const ESCAPE = "Escape";
+const HOME = "Home";
+const PAGE_DOWN = "PageDown";
+const PAGE_UP = "PageUp";
 const SPACE = " ";
 const TAB = "Tab";
+function getElemDirection(elem) {
+  const style = window.getComputedStyle(elem);
+  const direction = style.getPropertyValue("direction");
+  return direction;
+}
+function getNextKey(dir = "ltr", orientation = "horizontal") {
+  return {
+    horizontal: dir === "rtl" ? ARROW_LEFT : ARROW_RIGHT,
+    vertical: ARROW_DOWN
+  }[orientation];
+}
+function getPrevKey(dir = "ltr", orientation = "horizontal") {
+  return {
+    horizontal: dir === "rtl" ? ARROW_RIGHT : ARROW_LEFT,
+    vertical: ARROW_UP
+  }[orientation];
+}
+function getDirectionalKeys(dir = "ltr", orientation = "horizontal") {
+  if (!["ltr", "rtl"].includes(dir))
+    dir = "ltr";
+  if (!["horizontal", "vertical"].includes(orientation))
+    orientation = "horizontal";
+  return {
+    nextKey: getNextKey(dir, orientation),
+    prevKey: getPrevKey(dir, orientation)
+  };
+}
 const isBrowser = typeof document !== "undefined";
 function isHTMLElement(element) {
   return element instanceof HTMLElement;
@@ -653,8 +682,8 @@ function isHTMLElement(element) {
 function isElement(element) {
   return element instanceof Element;
 }
-function isFocusVisible(element) {
-  return element.matches(":focus-visible");
+function isElementOrSVGElement(element) {
+  return element instanceof Element || element instanceof SVGElement;
 }
 function isNotNull(value) {
   return value !== null;
@@ -673,6 +702,82 @@ function isElementHidden(node, stopAt) {
     node = node.parentElement;
   }
   return false;
+}
+function useRovingFocus(props) {
+  const currentTabStopId = props.currentTabStopId ? props.currentTabStopId : box(null);
+  function getCandidateNodes() {
+    if (!isBrowser) return [];
+    const node = document.getElementById(props.rootNodeId.current);
+    if (!node) return [];
+    if (props.candidateSelector) {
+      const candidates = Array.from(node.querySelectorAll(props.candidateSelector));
+      return candidates;
+    } else {
+      const candidates = Array.from(node.querySelectorAll(`[${props.candidateAttr}]:not([data-disabled])`));
+      return candidates;
+    }
+  }
+  function focusFirstCandidate() {
+    const items = getCandidateNodes();
+    if (!items.length) return;
+    items[0]?.focus();
+  }
+  function handleKeydown(node, e, both = false) {
+    const rootNode = document.getElementById(props.rootNodeId.current);
+    if (!rootNode || !node) return;
+    const items = getCandidateNodes();
+    if (!items.length) return;
+    const currentIndex = items.indexOf(node);
+    const dir = getElemDirection(rootNode);
+    const { nextKey, prevKey } = getDirectionalKeys(dir, props.orientation.current);
+    const loop = props.loop.current;
+    const keyToIndex = {
+      [nextKey]: currentIndex + 1,
+      [prevKey]: currentIndex - 1,
+      [HOME]: 0,
+      [END]: items.length - 1
+    };
+    if (both) {
+      const altNextKey = nextKey === ARROW_DOWN ? ARROW_RIGHT : ARROW_DOWN;
+      const altPrevKey = prevKey === ARROW_UP ? ARROW_LEFT : ARROW_UP;
+      keyToIndex[altNextKey] = currentIndex + 1;
+      keyToIndex[altPrevKey] = currentIndex - 1;
+    }
+    let itemIndex = keyToIndex[e.key];
+    if (itemIndex === void 0) return;
+    e.preventDefault();
+    if (itemIndex < 0 && loop) {
+      itemIndex = items.length - 1;
+    } else if (itemIndex === items.length && loop) {
+      itemIndex = 0;
+    }
+    const itemToFocus = items[itemIndex];
+    if (!itemToFocus) return;
+    itemToFocus.focus();
+    currentTabStopId.current = itemToFocus.id;
+    props.onCandidateFocus?.(itemToFocus);
+    return itemToFocus;
+  }
+  function getTabIndex(node) {
+    const items = getCandidateNodes();
+    const anyActive = currentTabStopId.current !== null;
+    if (node && !anyActive && items[0] === node) {
+      currentTabStopId.current = node.id;
+      return 0;
+    } else if (node?.id === currentTabStopId.current) {
+      return 0;
+    }
+    return -1;
+  }
+  return {
+    setCurrentTabStopId(id) {
+      currentTabStopId.current = id;
+    },
+    getTabIndex,
+    handleKeydown,
+    focusFirstCandidate,
+    currentTabStopId
+  };
 }
 globalThis.bitsIdCounter ??= { current: 0 };
 function useId(prefix = "bits") {
@@ -722,175 +827,6 @@ function Presence_layer($$payload, $$props) {
   }
   $$payload.out += `<!--]-->`;
   pop();
-}
-function createAttrs(variant) {
-  return {
-    content: `data-${variant}-content`,
-    trigger: `data-${variant}-trigger`,
-    overlay: `data-${variant}-overlay`,
-    title: `data-${variant}-title`,
-    description: `data-${variant}-description`,
-    close: `data-${variant}-close`,
-    cancel: `data-${variant}-cancel`,
-    action: `data-${variant}-action`
-  };
-}
-class DialogRootState {
-  open;
-  variant;
-  triggerNode = null;
-  titleNode = null;
-  contentNode = null;
-  descriptionNode = null;
-  contentId = void 0;
-  titleId = void 0;
-  triggerId = void 0;
-  descriptionId = void 0;
-  cancelNode = null;
-  #attrs = once(() => createAttrs(this.variant.current));
-  get attrs() {
-    return this.#attrs();
-  }
-  constructor(props) {
-    this.open = props.open;
-    this.variant = props.variant;
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-  handleOpen() {
-    if (this.open.current) return;
-    this.open.current = true;
-  }
-  handleClose() {
-    if (!this.open.current) return;
-    this.open.current = false;
-  }
-  #sharedProps = once(() => ({
-    "data-state": getDataOpenClosed(this.open.current)
-  }));
-  get sharedProps() {
-    return this.#sharedProps();
-  }
-}
-class DialogCloseState {
-  #id;
-  #ref;
-  #root;
-  #variant;
-  #disabled;
-  #attr = once(() => this.#root.attrs[this.#variant.current]);
-  constructor(props, root) {
-    this.#root = root;
-    this.#ref = props.ref;
-    this.#id = props.id;
-    this.#variant = props.variant;
-    this.#disabled = props.disabled;
-    this.onclick = this.onclick.bind(this);
-    this.onkeydown = this.onkeydown.bind(this);
-    useRefById({
-      id: this.#id,
-      ref: this.#ref,
-      deps: () => this.#root.open.current
-    });
-  }
-  onclick(e) {
-    if (this.#disabled.current) return;
-    if (e.button > 0) return;
-    this.#root.handleClose();
-  }
-  onkeydown(e) {
-    if (this.#disabled.current) return;
-    if (e.key === SPACE || e.key === ENTER) {
-      e.preventDefault();
-      this.#root.handleClose();
-    }
-  }
-  #props = once(() => ({
-    id: this.#id.current,
-    [this.#attr()]: "",
-    onclick: this.onclick,
-    onkeydown: this.onkeydown,
-    ...this.#root.sharedProps
-  }));
-  get props() {
-    return this.#props();
-  }
-}
-class DialogContentState {
-  #id;
-  #ref;
-  root;
-  constructor(props, root) {
-    this.#id = props.id;
-    this.root = root;
-    this.#ref = props.ref;
-    useRefById({
-      id: this.#id,
-      ref: this.#ref,
-      deps: () => this.root.open.current,
-      onRefChange: (node) => {
-        this.root.contentNode = node;
-        this.root.contentId = node?.id;
-      }
-    });
-  }
-  #snippetProps = once(() => ({ open: this.root.open.current }));
-  get snippetProps() {
-    return this.#snippetProps();
-  }
-  #props = once(() => ({
-    id: this.#id.current,
-    role: this.root.variant.current === "alert-dialog" ? "alertdialog" : "dialog",
-    "aria-describedby": this.root.descriptionId,
-    "aria-labelledby": this.root.titleId,
-    [this.root.attrs.content]: "",
-    style: { pointerEvents: "auto" },
-    ...this.root.sharedProps
-  }));
-  get props() {
-    return this.#props();
-  }
-}
-class DialogOverlayState {
-  #id;
-  #ref;
-  root;
-  constructor(props, root) {
-    this.#id = props.id;
-    this.#ref = props.ref;
-    this.root = root;
-    useRefById({
-      id: this.#id,
-      ref: this.#ref,
-      deps: () => this.root.open.current
-    });
-  }
-  #snippetProps = once(() => ({ open: this.root.open.current }));
-  get snippetProps() {
-    return this.#snippetProps();
-  }
-  #props = once(() => ({
-    id: this.#id.current,
-    [this.root.attrs.overlay]: "",
-    style: { pointerEvents: "auto" },
-    ...this.root.sharedProps
-  }));
-  get props() {
-    return this.#props();
-  }
-}
-const DialogRootContext = new Context("Dialog.Root");
-function useDialogRoot(props) {
-  return DialogRootContext.set(new DialogRootState(props));
-}
-function useDialogContent(props) {
-  return new DialogContentState(props, DialogRootContext.get());
-}
-function useDialogOverlay(props) {
-  return new DialogOverlayState(props, DialogRootContext.get());
-}
-function useDialogClose(props) {
-  return new DialogCloseState(props, DialogRootContext.get());
 }
 function Portal($$payload, $$props) {
   push();
@@ -1236,6 +1172,15 @@ function focus(element, { select = false } = {}) {
     element.select();
   }
 }
+function focusFirst(candidates, { select = false } = {}) {
+  const previouslyFocusedElement = document.activeElement;
+  for (const candidate of candidates) {
+    focus(candidate, { select });
+    if (document.activeElement !== previouslyFocusedElement) {
+      return true;
+    }
+  }
+}
 function findVisible(elements, container) {
   for (const element of elements) {
     if (!isElementHidden(element, container))
@@ -1439,55 +1384,19 @@ function Scroll_lock($$payload, $$props) {
   useBodyScrollLock(preventScroll, () => restoreScrollDelay);
   pop();
 }
-function shouldTrapFocus({ forceMount, present, trapFocus, open }) {
-  if (forceMount) {
-    return open && trapFocus;
-  }
-  return present && trapFocus && open;
+function getNextMatch(values, search, currentMatch) {
+  const isRepeated = search.length > 1 && Array.from(search).every((char) => char === search[0]);
+  const normalizedSearch = isRepeated ? search[0] : search;
+  const currentMatchIndex = currentMatch ? values.indexOf(currentMatch) : -1;
+  let wrappedValues = wrapArray(values, Math.max(currentMatchIndex, 0));
+  const excludeCurrentMatch = normalizedSearch.length === 1;
+  if (excludeCurrentMatch)
+    wrappedValues = wrappedValues.filter((v) => v !== currentMatch);
+  const nextMatch = wrappedValues.find((value) => value?.toLowerCase().startsWith(normalizedSearch.toLowerCase()));
+  return nextMatch !== currentMatch ? nextMatch : void 0;
 }
-function Dialog_overlay($$payload, $$props) {
-  push();
-  let {
-    id = useId(),
-    forceMount = false,
-    child,
-    children,
-    ref = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const overlayState = useDialogOverlay({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
-  });
-  const mergedProps = mergeProps(restProps, overlayState.props);
-  {
-    let presence = function($$payload2) {
-      if (child) {
-        $$payload2.out += "<!--[-->";
-        child($$payload2, {
-          props: mergeProps(mergedProps),
-          ...overlayState.snippetProps
-        });
-        $$payload2.out += `<!---->`;
-      } else {
-        $$payload2.out += "<!--[!-->";
-        $$payload2.out += `<div${spread_attributes({ ...mergeProps(mergedProps) })}>`;
-        children?.($$payload2, overlayState.snippetProps);
-        $$payload2.out += `<!----></div>`;
-      }
-      $$payload2.out += `<!--]-->`;
-    };
-    Presence_layer($$payload, {
-      id,
-      present: overlayState.root.open.current || forceMount,
-      presence,
-      $$slots: { presence: true }
-    });
-  }
-  bind_props($$props, { ref });
-  pop();
+function wrapArray(array, startIndex) {
+  return array.map((_, index) => array[(startIndex + index) % array.length]);
 }
 function get(valueOrGetValue) {
   return typeof valueOrGetValue === "function" ? valueOrGetValue() : valueOrGetValue;
@@ -1897,6 +1806,49 @@ function Floating_layer($$payload, $$props) {
   $$payload.out += `<!---->`;
   pop();
 }
+function boxAutoReset(defaultValue, afterMs = 1e4) {
+  let timeout = null;
+  let value = defaultValue;
+  function resetAfter() {
+    return setTimeout(
+      () => {
+        value = defaultValue;
+      },
+      afterMs
+    );
+  }
+  return box.with(() => value, (v) => {
+    value = v;
+    if (timeout) clearTimeout(timeout);
+    timeout = resetAfter();
+  });
+}
+function useDOMTypeahead(opts) {
+  const search = boxAutoReset("", 1e3);
+  const onMatch = (node) => node.focus();
+  const getCurrentItem = () => document.activeElement;
+  function handleTypeaheadSearch(key, candidates) {
+    if (!candidates.length) return;
+    search.current = search.current + key;
+    const currentItem = getCurrentItem();
+    const currentMatch = candidates.find((item) => item === currentItem)?.textContent?.trim() ?? "";
+    const values = candidates.map((item) => item.textContent?.trim() ?? "");
+    const nextMatch = getNextMatch(values, search.current, currentMatch);
+    const newItem = candidates.find((item) => item.textContent?.trim() === nextMatch);
+    if (newItem) {
+      onMatch(newItem);
+    }
+    return newItem;
+  }
+  function resetTypeahead() {
+    search.current = "";
+  }
+  return {
+    search,
+    handleTypeaheadSearch,
+    resetTypeahead
+  };
+}
 function Floating_layer_anchor($$payload, $$props) {
   push();
   let { id, children, virtualEl } = $$props;
@@ -2298,488 +2250,567 @@ function Popper_layer_force_mount($$payload, $$props) {
     { forceMount: true }
   ]));
 }
-function Dialog($$payload, $$props) {
+function Mounted($$payload, $$props) {
   push();
-  let { open = false, onOpenChange = noop, children } = $$props;
-  useDialogRoot({
-    variant: box.with(() => "dialog"),
-    open: box.with(() => open, (v) => {
-      open = v;
-      onOpenChange(v);
-    })
-  });
-  children?.($$payload);
-  $$payload.out += `<!---->`;
-  bind_props($$props, { open });
+  let { isMounted = false, onMountedChange = noop } = $$props;
+  bind_props($$props, { isMounted });
   pop();
 }
-function Dialog_close($$payload, $$props) {
+const SELECTION_KEYS = [ENTER, SPACE];
+const FIRST_KEYS = [ARROW_DOWN, PAGE_UP, HOME];
+const LAST_KEYS = [ARROW_UP, PAGE_DOWN, END];
+const FIRST_LAST_KEYS = [...FIRST_KEYS, ...LAST_KEYS];
+function isMouseEvent(event) {
+  return event.pointerType === "mouse";
+}
+function pointInPolygon(point, polygon) {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const xi = polygon[i].x;
+    const yi = polygon[i].y;
+    const xj = polygon[j].x;
+    const yj = polygon[j].y;
+    const intersect = yi > point.y !== yj > point.y && point.x < (xj - xi) * (point.y - yi) / (yj - yi) + xi;
+    if (intersect)
+      inside = !inside;
+  }
+  return inside;
+}
+function isPointerInGraceArea(e, area) {
+  if (!area)
+    return false;
+  return pointInPolygon({ x: e.clientX, y: e.clientY }, area);
+}
+const MenuRootContext = new Context("Menu.Root");
+const MenuMenuContext = new Context("Menu.Root | Menu.Sub");
+const MenuContentContext = new Context("Menu.Content");
+class MenuRootState {
+  onClose;
+  variant;
+  isUsingKeyboard = false;
+  dir;
+  constructor(props) {
+    this.onClose = props.onClose;
+    this.dir = props.dir;
+    this.variant = props.variant;
+  }
+  getAttr(name) {
+    return `data-${this.variant.current}-${name}`;
+  }
+}
+class MenuMenuState {
+  root;
+  open;
+  contentId = box.with(() => "");
+  contentNode = null;
+  triggerNode = null;
+  parentMenu;
+  constructor(props, root, parentMenu) {
+    this.root = root;
+    this.open = props.open;
+    this.parentMenu = parentMenu;
+  }
+  toggleOpen() {
+    this.open.current = !this.open.current;
+  }
+  onOpen() {
+    this.open.current = true;
+  }
+  onClose() {
+    this.open.current = false;
+  }
+}
+class MenuContentState {
+  #id;
+  contentRef;
+  parentMenu;
+  search = "";
+  #loop;
+  #timer = 0;
+  pointerGraceTimer = 0;
+  #pointerGraceIntent = null;
+  #pointerDir = "right";
+  #lastPointerX = 0;
+  #handleTypeaheadSearch;
+  rovingFocusGroup;
+  isMounted;
+  isFocusWithin = new IsFocusWithin(() => this.parentMenu.contentNode ?? void 0);
+  constructor(props, parentMenu) {
+    this.#id = props.id;
+    this.#loop = props.loop;
+    this.parentMenu = parentMenu;
+    this.parentMenu.contentId = props.id;
+    this.contentRef = props.ref;
+    this.isMounted = props.isMounted;
+    this.onkeydown = this.onkeydown.bind(this);
+    this.onblur = this.onblur.bind(this);
+    this.onpointermove = this.onpointermove.bind(this);
+    this.onfocus = this.onfocus.bind(this);
+    this.handleInteractOutside = this.handleInteractOutside.bind(this);
+    useRefById({
+      id: this.#id,
+      ref: this.contentRef,
+      deps: () => this.parentMenu.open.current,
+      onRefChange: (node) => {
+        if (this.parentMenu.contentNode !== node) {
+          this.parentMenu.contentNode = node;
+        }
+      }
+    });
+    this.#handleTypeaheadSearch = useDOMTypeahead().handleTypeaheadSearch;
+    this.rovingFocusGroup = useRovingFocus({
+      rootNodeId: this.parentMenu.contentId,
+      candidateAttr: this.parentMenu.root.getAttr("item"),
+      loop: this.#loop,
+      orientation: box.with(() => "vertical")
+    });
+  }
+  #getCandidateNodes() {
+    const node = this.parentMenu.contentNode;
+    if (!node) return [];
+    const candidates = Array.from(node.querySelectorAll(`[${this.parentMenu.root.getAttr("item")}]:not([data-disabled])`));
+    return candidates;
+  }
+  #isPointerMovingToSubmenu(e) {
+    const isMovingTowards = this.#pointerDir === this.#pointerGraceIntent?.side;
+    return isMovingTowards && isPointerInGraceArea(e, this.#pointerGraceIntent?.area);
+  }
+  onPointerGraceIntentChange(intent) {
+    this.#pointerGraceIntent = intent;
+  }
+  onkeydown(e) {
+    if (e.defaultPrevented) return;
+    const target = e.target;
+    const currentTarget = e.currentTarget;
+    if (!isHTMLElement(target) || !isHTMLElement(currentTarget)) return;
+    const isKeydownInside = target.closest(`[${this.parentMenu.root.getAttr("content")}]`)?.id === this.parentMenu.contentId.current;
+    const isModifierKey = e.ctrlKey || e.altKey || e.metaKey;
+    const isCharacterKey = e.key.length === 1;
+    const kbdFocusedEl = this.rovingFocusGroup.handleKeydown(target, e);
+    if (kbdFocusedEl) return;
+    if (e.code === "Space") return;
+    const candidateNodes = this.#getCandidateNodes();
+    if (isKeydownInside) {
+      if (e.key === TAB) e.preventDefault();
+      if (!isModifierKey && isCharacterKey) {
+        this.#handleTypeaheadSearch(e.key, candidateNodes);
+      }
+    }
+    if (e.target?.id !== this.parentMenu.contentId.current) return;
+    if (!FIRST_LAST_KEYS.includes(e.key)) return;
+    e.preventDefault();
+    if (LAST_KEYS.includes(e.key)) {
+      candidateNodes.reverse();
+    }
+    focusFirst(candidateNodes);
+  }
+  onblur(e) {
+    if (!isElement(e.currentTarget)) return;
+    if (!isElement(e.target)) return;
+    if (!e.currentTarget.contains?.(e.target)) {
+      window.clearTimeout(this.#timer);
+      this.search = "";
+    }
+  }
+  onfocus(_) {
+    if (!this.parentMenu.root.isUsingKeyboard) return;
+    afterTick(() => this.rovingFocusGroup.focusFirstCandidate());
+  }
+  onpointermove(e) {
+    if (!isMouseEvent(e)) return;
+    const target = e.target;
+    if (!isElement(target)) return;
+    const pointerXHasChanged = this.#lastPointerX !== e.clientX;
+    const currentTarget = e.currentTarget;
+    if (!isElement(currentTarget)) return;
+    if (currentTarget.contains(target) && pointerXHasChanged) {
+      const newDir = e.clientX > this.#lastPointerX ? "right" : "left";
+      this.#pointerDir = newDir;
+      this.#lastPointerX = e.clientX;
+    }
+  }
+  onItemEnter(e) {
+    if (this.#isPointerMovingToSubmenu(e)) return true;
+    return false;
+  }
+  onItemLeave(e) {
+    if (this.#isPointerMovingToSubmenu(e)) return;
+    const contentNode = this.parentMenu.contentNode;
+    contentNode?.focus();
+    this.rovingFocusGroup.setCurrentTabStopId("");
+  }
+  onTriggerLeave(e) {
+    if (this.#isPointerMovingToSubmenu(e)) return true;
+    return false;
+  }
+  onOpenAutoFocus = (e) => {
+    if (e.defaultPrevented) return;
+    e.preventDefault();
+    const contentNode = this.parentMenu.contentNode;
+    contentNode?.focus();
+  };
+  handleInteractOutside(e) {
+    if (!isElementOrSVGElement(e.target)) return;
+    const triggerId = this.parentMenu.triggerNode?.id;
+    if (e.target.id === triggerId) {
+      e.preventDefault();
+      return;
+    }
+    if (e.target.closest(`#${triggerId}`)) {
+      e.preventDefault();
+    }
+  }
+  #snippetProps = once(() => ({ open: this.parentMenu.open.current }));
+  get snippetProps() {
+    return this.#snippetProps();
+  }
+  #props = once(() => ({
+    id: this.#id.current,
+    role: "menu",
+    "aria-orientation": getAriaOrientation("vertical"),
+    [this.parentMenu.root.getAttr("content")]: "",
+    "data-state": getDataOpenClosed(this.parentMenu.open.current),
+    onkeydown: this.onkeydown,
+    onblur: this.onblur,
+    onpointermove: this.onpointermove,
+    onfocus: this.onfocus,
+    dir: this.parentMenu.root.dir.current,
+    style: { pointerEvents: "auto" }
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class MenuItemSharedState {
+  content;
+  ref;
+  id;
+  disabled;
+  #isFocused = false;
+  constructor(props, content) {
+    this.content = content;
+    this.id = props.id;
+    this.disabled = props.disabled;
+    this.ref = props.ref;
+    this.onpointermove = this.onpointermove.bind(this);
+    this.onpointerleave = this.onpointerleave.bind(this);
+    this.onfocus = this.onfocus.bind(this);
+    this.onblur = this.onblur.bind(this);
+    useRefById({
+      id: this.id,
+      ref: this.ref,
+      deps: () => this.content.isMounted.current
+    });
+  }
+  onpointermove(e) {
+    if (e.defaultPrevented) return;
+    if (!isMouseEvent(e)) return;
+    if (this.disabled.current) {
+      this.content.onItemLeave(e);
+    } else {
+      const defaultPrevented = this.content.onItemEnter(e);
+      if (defaultPrevented) return;
+      const item = e.currentTarget;
+      if (!isHTMLElement(item)) return;
+      item.focus();
+    }
+  }
+  onpointerleave(e) {
+    afterTick(() => {
+      if (e.defaultPrevented) return;
+      if (!isMouseEvent(e)) return;
+      this.content.onItemLeave(e);
+    });
+  }
+  onfocus(e) {
+    afterTick(() => {
+      if (e.defaultPrevented || this.disabled.current) return;
+      this.#isFocused = true;
+    });
+  }
+  onblur(e) {
+    afterTick(() => {
+      if (e.defaultPrevented) return;
+      this.#isFocused = false;
+    });
+  }
+  #props = once(() => ({
+    id: this.id.current,
+    tabindex: -1,
+    role: "menuitem",
+    "aria-disabled": getAriaDisabled(this.disabled.current),
+    "data-disabled": getDataDisabled(this.disabled.current),
+    "data-highlighted": this.#isFocused ? "" : void 0,
+    [this.content.parentMenu.root.getAttr("item")]: "",
+    //
+    onpointermove: this.onpointermove,
+    onpointerleave: this.onpointerleave,
+    onfocus: this.onfocus,
+    onblur: this.onblur
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class MenuItemState {
+  #item;
+  #onSelect;
+  #closeOnSelect;
+  #isPointerDown = false;
+  root;
+  constructor(props, item) {
+    this.#item = item;
+    this.root = item.content.parentMenu.root;
+    this.#onSelect = props.onSelect;
+    this.#closeOnSelect = props.closeOnSelect;
+    this.onkeydown = this.onkeydown.bind(this);
+    this.onclick = this.onclick.bind(this);
+    this.onpointerdown = this.onpointerdown.bind(this);
+    this.onpointerup = this.onpointerup.bind(this);
+  }
+  #handleSelect() {
+    if (this.#item.disabled.current) return;
+    const selectEvent = new CustomEvent("menuitemselect", { bubbles: true, cancelable: true });
+    this.#onSelect.current(selectEvent);
+    afterTick(() => {
+      if (selectEvent.defaultPrevented) {
+        this.#item.content.parentMenu.root.isUsingKeyboard = false;
+        return;
+      }
+      if (this.#closeOnSelect.current) {
+        this.#item.content.parentMenu.root.onClose();
+      }
+    });
+  }
+  onkeydown(e) {
+    const isTypingAhead = this.#item.content.search !== "";
+    if (this.#item.disabled.current || isTypingAhead && e.key === SPACE) return;
+    if (SELECTION_KEYS.includes(e.key)) {
+      if (!isHTMLElement(e.currentTarget)) return;
+      e.currentTarget.click();
+      e.preventDefault();
+    }
+  }
+  onclick(_) {
+    if (this.#item.disabled.current) return;
+    this.#handleSelect();
+  }
+  onpointerup(e) {
+    if (e.defaultPrevented) return;
+    if (!this.#isPointerDown) {
+      if (!isHTMLElement(e.currentTarget)) return;
+      e.currentTarget?.click();
+    }
+  }
+  onpointerdown(_) {
+    this.#isPointerDown = true;
+  }
+  #props = once(() => mergeProps(this.#item.props, {
+    onclick: this.onclick,
+    onpointerdown: this.onpointerdown,
+    onpointerup: this.onpointerup,
+    onkeydown: this.onkeydown
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class MenuSeparatorState {
+  #id;
+  #ref;
+  #root;
+  constructor(props, root) {
+    this.#id = props.id;
+    this.#ref = props.ref;
+    this.#root = root;
+    useRefById({ id: this.#id, ref: this.#ref });
+  }
+  #props = once(() => ({
+    id: this.#id.current,
+    role: "group",
+    [this.#root.getAttr("separator")]: ""
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class DropdownMenuTriggerState {
+  #id;
+  #ref;
+  #parentMenu;
+  #disabled;
+  constructor(props, parentMenu) {
+    this.#ref = props.ref;
+    this.#id = props.id;
+    this.#parentMenu = parentMenu;
+    this.#disabled = props.disabled;
+    this.onpointerdown = this.onpointerdown.bind(this);
+    this.onpointerup = this.onpointerup.bind(this);
+    this.onkeydown = this.onkeydown.bind(this);
+    useRefById({
+      id: this.#id,
+      ref: this.#ref,
+      onRefChange: (ref) => {
+        this.#parentMenu.triggerNode = ref;
+      }
+    });
+  }
+  onpointerdown(e) {
+    if (this.#disabled.current) return;
+    if (e.pointerType === "touch") return e.preventDefault();
+    if (e.button === 0 && e.ctrlKey === false) {
+      this.#parentMenu.toggleOpen();
+      if (!this.#parentMenu.open.current) e.preventDefault();
+    }
+  }
+  onpointerup(e) {
+    if (this.#disabled.current) return;
+    if (e.pointerType === "touch") {
+      e.preventDefault();
+      this.#parentMenu.toggleOpen();
+    }
+  }
+  onkeydown(e) {
+    if (this.#disabled.current) return;
+    if (e.key === SPACE || e.key === ENTER) {
+      this.#parentMenu.toggleOpen();
+      e.preventDefault();
+      return;
+    }
+    if (e.key === ARROW_DOWN) {
+      this.#parentMenu.onOpen();
+      e.preventDefault();
+    }
+  }
+  #ariaControls = once(() => {
+    if (this.#parentMenu.open.current && this.#parentMenu.contentId.current) return this.#parentMenu.contentId.current;
+    return void 0;
+  });
+  #props = once(() => ({
+    id: this.#id.current,
+    disabled: this.#disabled.current,
+    "aria-haspopup": "menu",
+    "aria-expanded": getAriaExpanded(this.#parentMenu.open.current),
+    "aria-controls": this.#ariaControls(),
+    "data-disabled": getDataDisabled(this.#disabled.current),
+    "data-state": getDataOpenClosed(this.#parentMenu.open.current),
+    [this.#parentMenu.root.getAttr("trigger")]: "",
+    //
+    onpointerdown: this.onpointerdown,
+    onpointerup: this.onpointerup,
+    onkeydown: this.onkeydown
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+function useMenuRoot(props) {
+  return MenuRootContext.set(new MenuRootState(props));
+}
+function useMenuMenu(root, props) {
+  return MenuMenuContext.set(new MenuMenuState(props, root));
+}
+function useMenuDropdownTrigger(props) {
+  return new DropdownMenuTriggerState(props, MenuMenuContext.get());
+}
+function useMenuContent(props) {
+  return MenuContentContext.set(new MenuContentState(props, MenuMenuContext.get()));
+}
+function useMenuItem(props) {
+  const item = new MenuItemSharedState(props, MenuContentContext.get());
+  return new MenuItemState(props, item);
+}
+function useMenuSeparator(props) {
+  return new MenuSeparatorState(props, MenuRootContext.get());
+}
+function Menu_item($$payload, $$props) {
   push();
   let {
-    children,
     child,
-    id = useId(),
+    children,
     ref = null,
+    id = useId(),
     disabled = false,
+    onSelect = noop,
+    closeOnSelect = true,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  const closeState = useDialogClose({
-    variant: box.with(() => "close"),
+  const itemState = useMenuItem({
     id: box.with(() => id),
+    disabled: box.with(() => disabled),
+    onSelect: box.with(() => onSelect),
     ref: box.with(() => ref, (v) => ref = v),
-    disabled: box.with(() => Boolean(disabled))
+    closeOnSelect: box.with(() => closeOnSelect)
   });
-  const mergedProps = mergeProps(restProps, closeState.props);
+  const mergedProps = mergeProps(restProps, itemState.props);
   if (child) {
     $$payload.out += "<!--[-->";
     child($$payload, { props: mergedProps });
     $$payload.out += `<!---->`;
   } else {
     $$payload.out += "<!--[!-->";
-    $$payload.out += `<button${spread_attributes({ ...mergedProps })}>`;
+    $$payload.out += `<div${spread_attributes({ ...mergedProps })}>`;
     children?.($$payload);
-    $$payload.out += `<!----></button>`;
+    $$payload.out += `<!----></div>`;
   }
   $$payload.out += `<!--]-->`;
   bind_props($$props, { ref });
   pop();
 }
-function Dialog_content($$payload, $$props) {
+function Menu_separator($$payload, $$props) {
   push();
   let {
-    id = useId(),
-    children,
-    child,
     ref = null,
-    forceMount = false,
-    onCloseAutoFocus = noop,
-    onEscapeKeydown = noop,
-    onInteractOutside = noop,
-    trapFocus = true,
-    preventScroll = true,
-    restoreScrollDelay = null,
+    id = useId(),
+    child,
+    children,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  const contentState = useDialogContent({
+  const separatorState = useMenuSeparator({
     id: box.with(() => id),
     ref: box.with(() => ref, (v) => ref = v)
   });
-  const mergedProps = mergeProps(restProps, contentState.props);
-  {
-    let presence = function($$payload2, { present }) {
-      {
-        let focusScope = function($$payload3, { props: focusScopeProps }) {
-          Escape_layer($$payload3, spread_props([
-            mergedProps,
-            {
-              enabled: present.current,
-              onEscapeKeydown: (e) => {
-                onEscapeKeydown(e);
-                if (e.defaultPrevented) return;
-                contentState.root.handleClose();
-              },
-              children: ($$payload4) => {
-                Dismissible_layer($$payload4, spread_props([
-                  mergedProps,
-                  {
-                    enabled: present.current,
-                    onInteractOutside: (e) => {
-                      onInteractOutside(e);
-                      if (e.defaultPrevented) return;
-                      contentState.root.handleClose();
-                    },
-                    children: ($$payload5) => {
-                      Text_selection_layer($$payload5, spread_props([
-                        mergedProps,
-                        {
-                          enabled: present.current,
-                          children: ($$payload6) => {
-                            if (child) {
-                              $$payload6.out += "<!--[-->";
-                              if (contentState.root.open.current) {
-                                $$payload6.out += "<!--[-->";
-                                Scroll_lock($$payload6, { preventScroll, restoreScrollDelay });
-                              } else {
-                                $$payload6.out += "<!--[!-->";
-                              }
-                              $$payload6.out += `<!--]--> `;
-                              child($$payload6, {
-                                props: mergeProps(mergedProps, focusScopeProps),
-                                ...contentState.snippetProps
-                              });
-                              $$payload6.out += `<!---->`;
-                            } else {
-                              $$payload6.out += "<!--[!-->";
-                              Scroll_lock($$payload6, { preventScroll });
-                              $$payload6.out += `<!----> <div${spread_attributes({
-                                ...mergeProps(mergedProps, focusScopeProps)
-                              })}>`;
-                              children?.($$payload6);
-                              $$payload6.out += `<!----></div>`;
-                            }
-                            $$payload6.out += `<!--]-->`;
-                          },
-                          $$slots: { default: true }
-                        }
-                      ]));
-                    },
-                    $$slots: { default: true }
-                  }
-                ]));
-              },
-              $$slots: { default: true }
-            }
-          ]));
-        };
-        Focus_scope($$payload2, spread_props([
-          {
-            loop: true,
-            trapFocus: shouldTrapFocus({
-              forceMount,
-              present: present.current,
-              trapFocus,
-              open: contentState.root.open.current
-            })
-          },
-          mergedProps,
-          {
-            onCloseAutoFocus: (e) => {
-              onCloseAutoFocus(e);
-              if (e.defaultPrevented) return;
-              contentState.root.triggerNode?.focus();
-            },
-            focusScope,
-            $$slots: { focusScope: true }
-          }
-        ]));
-      }
-    };
-    Presence_layer($$payload, spread_props([
-      mergedProps,
-      {
-        forceMount,
-        present: contentState.root.open.current || forceMount,
-        presence,
-        $$slots: { presence: true }
-      }
-    ]));
+  const mergedProps = mergeProps(restProps, separatorState.props);
+  if (child) {
+    $$payload.out += "<!--[-->";
+    child($$payload, { props: mergedProps });
+    $$payload.out += `<!---->`;
+  } else {
+    $$payload.out += "<!--[!-->";
+    $$payload.out += `<div${spread_attributes({ ...mergedProps })}>`;
+    children?.($$payload);
+    $$payload.out += `<!----></div>`;
   }
+  $$payload.out += `<!--]-->`;
   bind_props($$props, { ref });
   pop();
 }
-function useTimeoutFn(cb, interval, options = {}) {
-  const { immediate = true } = options;
-  const isPending = box(false);
-  let timer;
-  function clear() {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
-  }
-  function stop() {
-    isPending.current = false;
-    clear();
-  }
-  function start(...args) {
-    clear();
-    isPending.current = true;
-    timer = setTimeout(
-      () => {
-        isPending.current = false;
-        timer = null;
-        cb(...args);
-      },
-      interval
-    );
-  }
-  if (immediate) {
-    isPending.current = true;
-    if (isBrowser) start();
-  }
-  return {
-    isPending: box.readonly(isPending),
-    start,
-    stop
-  };
-}
-const CONTENT_ATTR = "data-tooltip-content";
-const TRIGGER_ATTR = "data-tooltip-trigger";
-class TooltipProviderState {
-  delayDuration;
-  disableHoverableContent;
-  disableCloseOnTriggerClick;
-  disabled;
-  ignoreNonKeyboardFocus;
-  skipDelayDuration;
-  isOpenDelayed = true;
-  isPointerInTransit = box(false);
-  #timerFn;
-  constructor(props) {
-    this.delayDuration = props.delayDuration;
-    this.disableHoverableContent = props.disableHoverableContent;
-    this.disableCloseOnTriggerClick = props.disableCloseOnTriggerClick;
-    this.disabled = props.disabled;
-    this.ignoreNonKeyboardFocus = props.ignoreNonKeyboardFocus;
-    this.skipDelayDuration = props.skipDelayDuration;
-    this.#timerFn = useTimeoutFn(
-      () => {
-        this.isOpenDelayed = true;
-      },
-      this.skipDelayDuration.current,
-      { immediate: false }
-    );
-  }
-  #startTimer = () => {
-    this.#timerFn.start();
-  };
-  #clearTimer = () => {
-    this.#timerFn.stop();
-  };
-  onOpen = () => {
-    this.#clearTimer();
-    this.isOpenDelayed = false;
-  };
-  onClose = () => {
-    this.#startTimer();
-  };
-}
-class TooltipRootState {
-  open;
-  _delayDuration;
-  _disableHoverableContent;
-  _disableCloseOnTriggerClick;
-  _disabled;
-  _ignoreNonKeyboardFocus;
-  provider;
-  #delayDuration = once(() => this._delayDuration.current ?? this.provider.delayDuration.current);
-  get delayDuration() {
-    return this.#delayDuration();
-  }
-  #disableHoverableContent = once(() => this._disableHoverableContent.current ?? this.provider.disableHoverableContent.current);
-  get disableHoverableContent() {
-    return this.#disableHoverableContent();
-  }
-  #disableCloseOnTriggerClick = once(() => this._disableCloseOnTriggerClick.current ?? this.provider.disableCloseOnTriggerClick.current);
-  get disableCloseOnTriggerClick() {
-    return this.#disableCloseOnTriggerClick();
-  }
-  #disabled = once(() => this._disabled.current ?? this.provider.disabled.current);
-  get disabled() {
-    return this.#disabled();
-  }
-  #ignoreNonKeyboardFocus = once(() => this._ignoreNonKeyboardFocus.current ?? this.provider.ignoreNonKeyboardFocus.current);
-  get ignoreNonKeyboardFocus() {
-    return this.#ignoreNonKeyboardFocus();
-  }
-  contentNode = null;
-  triggerNode = null;
-  #wasOpenDelayed = false;
-  #timerFn;
-  #stateAttr = once(() => {
-    if (!this.open.current) return "closed";
-    return this.#wasOpenDelayed ? "delayed-open" : "instant-open";
-  });
-  get stateAttr() {
-    return this.#stateAttr();
-  }
-  constructor(props, provider) {
-    this.provider = provider;
-    this.open = props.open;
-    this._delayDuration = props.delayDuration;
-    this._disableHoverableContent = props.disableHoverableContent;
-    this._disableCloseOnTriggerClick = props.disableCloseOnTriggerClick;
-    this._disabled = props.disabled;
-    this._ignoreNonKeyboardFocus = props.ignoreNonKeyboardFocus;
-    this.#timerFn = useTimeoutFn(
-      () => {
-        this.#wasOpenDelayed = true;
-        this.open.current = true;
-      },
-      this.delayDuration ?? 0,
-      { immediate: false }
-    );
-  }
-  handleOpen = () => {
-    this.#timerFn.stop();
-    this.#wasOpenDelayed = false;
-    this.open.current = true;
-  };
-  handleClose = () => {
-    this.#timerFn.stop();
-    this.open.current = false;
-  };
-  #handleDelayedOpen = () => {
-    this.#timerFn.start();
-  };
-  onTriggerEnter = () => {
-    this.#handleDelayedOpen();
-  };
-  onTriggerLeave = () => {
-    if (this.disableHoverableContent) {
-      this.handleClose();
-    } else {
-      this.#timerFn.stop();
-    }
-  };
-}
-class TooltipTriggerState {
-  #id;
-  #ref;
-  #root;
-  #isPointerDown = box(false);
-  #hasPointerMoveOpened = false;
-  #disabled;
-  #isDisabled = once(() => this.#disabled.current || this.#root.disabled);
-  constructor(props, root) {
-    this.#id = props.id;
-    this.#ref = props.ref;
-    this.#disabled = props.disabled;
-    this.#root = root;
-    useRefById({
-      id: this.#id,
-      ref: this.#ref,
-      onRefChange: (node) => {
-        this.#root.triggerNode = node;
-      }
-    });
-  }
-  handlePointerUp = () => {
-    this.#isPointerDown.current = false;
-  };
-  #onpointerup = () => {
-    if (this.#isDisabled()) return;
-    this.#isPointerDown.current = false;
-  };
-  #onpointerdown = () => {
-    if (this.#isDisabled()) return;
-    this.#isPointerDown.current = true;
-    document.addEventListener(
-      "pointerup",
-      () => {
-        this.handlePointerUp();
-      },
-      { once: true }
-    );
-  };
-  #onpointermove = (e) => {
-    if (this.#isDisabled()) return;
-    if (e.pointerType === "touch") return;
-    if (this.#hasPointerMoveOpened || this.#root.provider.isPointerInTransit.current) return;
-    this.#root.onTriggerEnter();
-    this.#hasPointerMoveOpened = true;
-  };
-  #onpointerleave = () => {
-    if (this.#isDisabled()) return;
-    this.#root.onTriggerLeave();
-    this.#hasPointerMoveOpened = false;
-  };
-  #onfocus = (e) => {
-    if (this.#isPointerDown.current || this.#isDisabled()) return;
-    if (this.#root.ignoreNonKeyboardFocus && !isFocusVisible(e.currentTarget)) return;
-    this.#root.handleOpen();
-  };
-  #onblur = () => {
-    if (this.#isDisabled()) return;
-    this.#root.handleClose();
-  };
-  #onclick = () => {
-    if (this.#root.disableCloseOnTriggerClick || this.#isDisabled()) return;
-    this.#root.handleClose();
-  };
-  #props = once(() => ({
-    id: this.#id.current,
-    "aria-describedby": this.#root.open.current ? this.#root.contentNode?.id : void 0,
-    "data-state": this.#root.stateAttr,
-    "data-disabled": getDataDisabled(this.#isDisabled()),
-    "data-delay-duration": `${this.#root.delayDuration}`,
-    [TRIGGER_ATTR]: "",
-    tabindex: this.#isDisabled() ? void 0 : 0,
-    disabled: this.#disabled.current,
-    onpointerup: this.#onpointerup,
-    onpointerdown: this.#onpointerdown,
-    onpointermove: this.#onpointermove,
-    onpointerleave: this.#onpointerleave,
-    onfocus: this.#onfocus,
-    onblur: this.#onblur,
-    onclick: this.#onclick
-  }));
-  get props() {
-    return this.#props();
-  }
-}
-class TooltipContentState {
-  root;
-  #id;
-  #ref;
-  constructor(props, root) {
-    this.root = root;
-    this.#id = props.id;
-    this.#ref = props.ref;
-    useRefById({
-      id: this.#id,
-      ref: this.#ref,
-      onRefChange: (node) => {
-        this.root.contentNode = node;
-      },
-      deps: () => this.root.open.current
-    });
-  }
-  #snippetProps = once(() => ({ open: this.root.open.current }));
-  get snippetProps() {
-    return this.#snippetProps();
-  }
-  #props = once(() => ({
-    id: this.#id.current,
-    "data-state": this.root.stateAttr,
-    "data-disabled": getDataDisabled(this.root.disabled),
-    style: { pointerEvents: "auto", outline: "none" },
-    [CONTENT_ATTR]: ""
-  }));
-  get props() {
-    return this.#props();
-  }
-}
-const TooltipProviderContext = new Context("Tooltip.Provider");
-const TooltipRootContext = new Context("Tooltip.Root");
-function useTooltipProvider(props) {
-  return TooltipProviderContext.set(new TooltipProviderState(props));
-}
-function useTooltipRoot(props) {
-  return TooltipRootContext.set(new TooltipRootState(props, TooltipProviderContext.get()));
-}
-function useTooltipTrigger(props) {
-  return new TooltipTriggerState(props, TooltipRootContext.get());
-}
-function useTooltipContent(props) {
-  return new TooltipContentState(props, TooltipRootContext.get());
-}
-function Tooltip($$payload, $$props) {
+function Menu$1($$payload, $$props) {
   push();
   let {
     open = false,
+    dir = "ltr",
     onOpenChange = noop,
-    disabled,
-    delayDuration,
-    disableCloseOnTriggerClick,
-    disableHoverableContent,
-    ignoreNonKeyboardFocus,
+    _internal_variant: variant = "dropdown-menu",
     children
   } = $$props;
-  useTooltipRoot({
+  const root = useMenuRoot({
+    variant: box.with(() => variant),
+    dir: box.with(() => dir),
+    onClose: () => {
+      open = false;
+      onOpenChange(false);
+    }
+  });
+  useMenuMenu(root, {
     open: box.with(() => open, (v) => {
       open = v;
       onOpenChange(v);
-    }),
-    delayDuration: box.with(() => delayDuration),
-    disableCloseOnTriggerClick: box.with(() => disableCloseOnTriggerClick),
-    disableHoverableContent: box.with(() => disableHoverableContent),
-    ignoreNonKeyboardFocus: box.with(() => ignoreNonKeyboardFocus),
-    disabled: box.with(() => disabled)
+    })
   });
   Floating_layer($$payload, {
     children: ($$payload2) => {
@@ -2791,165 +2822,555 @@ function Tooltip($$payload, $$props) {
   bind_props($$props, { open });
   pop();
 }
-function Tooltip_content$1($$payload, $$props) {
+const ROOT_ATTR = "data-menubar-root";
+const TRIGGER_ATTR = "data-menubar-trigger";
+class MenubarRootState {
+  id;
+  ref;
+  value;
+  dir;
+  loop;
+  rovingFocusGroup;
+  currentTabStopId = box(null);
+  wasOpenedByKeyboard = false;
+  triggerIds = [];
+  valueToContentId = /* @__PURE__ */ new Map();
+  constructor(props) {
+    this.value = props.value;
+    this.dir = props.dir;
+    this.loop = props.loop;
+    this.id = props.id;
+    this.ref = props.ref;
+    this.onMenuClose = this.onMenuClose.bind(this);
+    this.onMenuOpen = this.onMenuOpen.bind(this);
+    this.onMenuToggle = this.onMenuToggle.bind(this);
+    this.registerTrigger = this.registerTrigger.bind(this);
+    this.deRegisterTrigger = this.deRegisterTrigger.bind(this);
+    useRefById({ id: this.id, ref: this.ref });
+    this.rovingFocusGroup = useRovingFocus({
+      rootNodeId: this.id,
+      candidateAttr: TRIGGER_ATTR,
+      loop: this.loop,
+      orientation: box.with(() => "horizontal"),
+      currentTabStopId: this.currentTabStopId
+    });
+  }
+  registerTrigger(id) {
+    this.triggerIds.push(id);
+  }
+  deRegisterTrigger(id) {
+    this.triggerIds = this.triggerIds.filter((triggerId) => triggerId !== id);
+  }
+  getTriggers() {
+    const node = this.ref.current;
+    if (!node) return [];
+    return Array.from(node.querySelectorAll(`[${TRIGGER_ATTR}]`));
+  }
+  onMenuOpen(id) {
+    this.value.current = id;
+    this.currentTabStopId.current = id;
+  }
+  onMenuClose() {
+    this.value.current = "";
+  }
+  onMenuToggle(id) {
+    this.value.current = this.value.current ? "" : id;
+  }
+  #props = once(() => ({
+    id: this.id.current,
+    role: "menubar",
+    [ROOT_ATTR]: ""
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class MenubarMenuState {
+  root;
+  value;
+  #open = once(() => this.root.value.current === this.value.current);
+  get open() {
+    return this.#open();
+  }
+  wasOpenedByKeyboard = false;
+  triggerNode = null;
+  contentNode = null;
+  constructor(props, root) {
+    this.value = props.value;
+    this.root = root;
+  }
+  getTriggerNode() {
+    return this.triggerNode;
+  }
+}
+class MenubarTriggerState {
+  id;
+  ref;
+  disabled;
+  menu;
+  root;
+  isFocused = false;
+  #tabIndex = 0;
+  constructor(props, menu) {
+    this.disabled = props.disabled;
+    this.menu = menu;
+    this.id = props.id;
+    this.ref = props.ref;
+    this.root = menu.root;
+    this.onpointerdown = this.onpointerdown.bind(this);
+    this.onpointerenter = this.onpointerenter.bind(this);
+    this.onkeydown = this.onkeydown.bind(this);
+    this.onfocus = this.onfocus.bind(this);
+    this.onblur = this.onblur.bind(this);
+    useRefById({
+      id: this.id,
+      ref: this.ref,
+      onRefChange: (node) => {
+        this.menu.triggerNode = node;
+      }
+    });
+  }
+  onpointerdown(e) {
+    if (!this.disabled.current && e.button === 0 && e.ctrlKey === false) {
+      if (!this.menu.open) {
+        e.preventDefault();
+      }
+      this.root.onMenuOpen(this.menu.value.current);
+    }
+  }
+  onpointerenter(_) {
+    const isMenubarOpen = Boolean(this.root.value.current);
+    if (isMenubarOpen && !this.menu.open) {
+      this.root.onMenuOpen(this.menu.value.current);
+      this.menu.getTriggerNode()?.focus();
+    }
+  }
+  onkeydown(e) {
+    if (this.disabled.current) return;
+    if (e.key === ENTER || e.key === SPACE) {
+      this.root.onMenuToggle(this.menu.value.current);
+    }
+    if (e.key === ARROW_DOWN) {
+      this.root.onMenuOpen(this.menu.value.current);
+    }
+    if (e.key === ENTER || e.key === SPACE || e.key === ARROW_DOWN) {
+      this.menu.wasOpenedByKeyboard = true;
+      e.preventDefault();
+    }
+    this.root.rovingFocusGroup.handleKeydown(this.menu.getTriggerNode(), e);
+  }
+  onfocus(_) {
+    this.isFocused = true;
+  }
+  onblur(_) {
+    this.isFocused = false;
+  }
+  #props = once(() => ({
+    type: "button",
+    role: "menuitem",
+    id: this.id.current,
+    "aria-haspopup": "menu",
+    "aria-expanded": getAriaExpanded(this.menu.open),
+    "aria-controls": this.menu.open ? this.menu.contentNode?.id : void 0,
+    "data-highlighted": this.isFocused ? "" : void 0,
+    "data-state": getDataOpenClosed(this.menu.open),
+    "data-disabled": getDataDisabled(this.disabled.current),
+    "data-menu-value": this.menu.value.current,
+    disabled: this.disabled.current ? true : void 0,
+    tabIndex: this.#tabIndex,
+    [TRIGGER_ATTR]: "",
+    onpointerdown: this.onpointerdown,
+    onpointerenter: this.onpointerenter,
+    onkeydown: this.onkeydown,
+    onfocus: this.onfocus,
+    onblur: this.onblur
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+class MenubarContentState {
+  id;
+  ref;
+  menu;
+  root;
+  hasInteractedOutside = false;
+  interactOutsideBehavior;
+  constructor(props, menu) {
+    this.interactOutsideBehavior = props.interactOutsideBehavior;
+    this.menu = menu;
+    this.id = props.id;
+    this.ref = props.ref;
+    this.root = menu.root;
+    this.onCloseAutoFocus = this.onCloseAutoFocus.bind(this);
+    this.onFocusOutside = this.onFocusOutside.bind(this);
+    this.onInteractOutside = this.onInteractOutside.bind(this);
+    this.onOpenAutoFocus = this.onOpenAutoFocus.bind(this);
+    this.onkeydown = this.onkeydown.bind(this);
+    useRefById({
+      id: this.id,
+      ref: this.ref,
+      onRefChange: (node) => {
+        this.menu.contentNode = node;
+      },
+      deps: () => this.menu.open
+    });
+  }
+  onCloseAutoFocus(e) {
+    const menubarOpen = Boolean(this.root.value.current);
+    if (!menubarOpen && !this.hasInteractedOutside) {
+      this.menu.getTriggerNode()?.focus();
+    }
+    this.hasInteractedOutside = false;
+    e.preventDefault();
+  }
+  onFocusOutside(e) {
+    const target = e.target;
+    const isMenubarTrigger = this.root.getTriggers().some((trigger) => trigger.contains(target));
+    if (isMenubarTrigger) e.preventDefault();
+  }
+  onInteractOutside() {
+    this.hasInteractedOutside = true;
+  }
+  onOpenAutoFocus() {
+    afterTick(() => this.ref.current?.focus());
+  }
+  onkeydown(e) {
+    if (e.key !== ARROW_LEFT && e.key !== ARROW_RIGHT) return;
+    const target = e.target;
+    const targetIsSubTrigger = target.hasAttribute("data-menu-sub-trigger");
+    const isKeydownInsideSubMenu = target.closest("[data-menu-content]") !== e.currentTarget;
+    const prevMenuKey = this.root.dir.current === "rtl" ? ARROW_RIGHT : ARROW_LEFT;
+    const isPrevKey = prevMenuKey === e.key;
+    const isNextKey = !isPrevKey;
+    if (isNextKey && targetIsSubTrigger) return;
+    if (isKeydownInsideSubMenu && isPrevKey) return;
+    const items = this.root.getTriggers().filter((trigger) => !trigger.disabled);
+    let candidateValues = items.map((item) => item.getAttribute("data-menu-value"));
+    if (isPrevKey) candidateValues.reverse();
+    const currentIndex = candidateValues.indexOf(this.menu.value.current);
+    candidateValues = this.root.loop.current ? wrapArray(candidateValues, currentIndex + 1) : candidateValues.slice(currentIndex + 1);
+    const [nextValue] = candidateValues;
+    if (nextValue) this.root.onMenuOpen(nextValue);
+  }
+  #props = once(() => ({
+    id: this.id.current,
+    "aria-labelledby": this.menu.triggerNode?.id,
+    style: {
+      "--bits-menubar-content-transform-origin": "var(--bits-floating-transform-origin)",
+      "--bits-menubar-content-available-width": "var(--bits-floating-available-width)",
+      "--bits-menubar-content-available-height": "var(--bits-floating-available-height)",
+      "--bits-menubar-anchor-width": "var(--bits-floating-anchor-width)",
+      "--bits-menubar-anchor-height": "var(--bits-floating-anchor-height)"
+    },
+    onkeydown: this.onkeydown,
+    "data-menu-content": ""
+  }));
+  get props() {
+    return this.#props();
+  }
+}
+const MenubarRootContext = new Context("Menubar.Root");
+const MenubarMenuContext = new Context("Menubar.Menu");
+function useMenubarRoot(props) {
+  return MenubarRootContext.set(new MenubarRootState(props));
+}
+function useMenubarMenu(props) {
+  return MenubarMenuContext.set(new MenubarMenuState(props, MenubarRootContext.get()));
+}
+function useMenubarTrigger(props) {
+  return new MenubarTriggerState(props, MenubarMenuContext.get());
+}
+function useMenubarContent(props) {
+  return new MenubarContentState(props, MenubarMenuContext.get());
+}
+function Menubar$1($$payload, $$props) {
   push();
   let {
+    id = useId(),
     children,
     child,
-    id = useId(),
     ref = null,
-    side = "top",
-    sideOffset = 0,
-    align = "center",
-    avoidCollisions = true,
-    arrowPadding = 0,
-    sticky = "partial",
-    hideWhenDetached = false,
-    collisionPadding = 0,
-    onInteractOutside,
-    onEscapeKeydown,
+    value = "",
+    dir = "ltr",
+    loop = true,
+    onValueChange = noop,
+    $$slots,
+    $$events,
+    ...restProps
+  } = $$props;
+  const rootState = useMenubarRoot({
+    id: box.with(() => id),
+    value: box.with(() => value, (v) => {
+      value = v;
+      onValueChange?.(v);
+    }),
+    dir: box.with(() => dir),
+    loop: box.with(() => loop),
+    ref: box.with(() => ref, (v) => ref = v)
+  });
+  const mergedProps = mergeProps(restProps, rootState.props);
+  if (child) {
+    $$payload.out += "<!--[-->";
+    child($$payload, { props: mergedProps });
+    $$payload.out += `<!---->`;
+  } else {
+    $$payload.out += "<!--[!-->";
+    $$payload.out += `<div${spread_attributes({ ...mergedProps })}>`;
+    children?.($$payload);
+    $$payload.out += `<!----></div>`;
+  }
+  $$payload.out += `<!--]-->`;
+  bind_props($$props, { ref });
+  pop();
+}
+function Menubar_menu($$payload, $$props) {
+  push();
+  let {
+    value = useId(),
+    $$slots,
+    $$events,
+    ...restProps
+  } = $$props;
+  const menuState = useMenubarMenu({ value: box.with(() => value) });
+  Menu$1($$payload, spread_props([
+    {
+      open: menuState.open,
+      onOpenChange: (open) => {
+        if (!open) menuState.root.onMenuClose();
+      },
+      dir: menuState.root.dir.current,
+      _internal_variant: "menubar"
+    },
+    restProps
+  ]));
+  pop();
+}
+function Menu_content($$payload, $$props) {
+  push();
+  let {
+    id = useId(),
+    child,
+    children,
+    ref = null,
+    loop = true,
+    onInteractOutside = noop,
+    onEscapeKeydown = noop,
     forceMount = false,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  const contentState = useTooltipContent({
+  let isMounted = false;
+  const contentState = useMenuContent({
     id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+    loop: box.with(() => loop),
+    ref: box.with(() => ref, (v) => ref = v),
+    isMounted: box.with(() => isMounted)
   });
-  const floatingProps = {
-    side,
-    sideOffset,
-    align,
-    avoidCollisions,
-    arrowPadding,
-    sticky,
-    hideWhenDetached,
-    collisionPadding
-  };
-  const mergedProps = mergeProps(restProps, floatingProps, contentState.props);
+  const mergedProps = mergeProps(restProps, contentState.props, { style: { outline: "none" } });
   function handleInteractOutside(e) {
-    onInteractOutside?.(e);
+    onInteractOutside(e);
     if (e.defaultPrevented) return;
-    contentState.root.handleClose();
+    contentState.parentMenu.onClose();
   }
   function handleEscapeKeydown(e) {
-    onEscapeKeydown?.(e);
+    onEscapeKeydown(e);
     if (e.defaultPrevented) return;
-    contentState.root.handleClose();
+    contentState.parentMenu.onClose();
   }
-  if (forceMount) {
-    $$payload.out += "<!--[-->";
-    {
-      let popper = function($$payload2, { props, wrapperProps }) {
-        const mergedProps2 = mergeProps(props, {
-          style: getFloatingContentCSSVars("tooltip")
-        });
-        if (child) {
-          $$payload2.out += "<!--[-->";
-          child($$payload2, {
-            props: mergedProps2,
-            wrapperProps,
-            ...contentState.snippetProps
-          });
-          $$payload2.out += `<!---->`;
-        } else {
-          $$payload2.out += "<!--[!-->";
-          $$payload2.out += `<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...mergedProps2 })}>`;
-          children?.($$payload2);
-          $$payload2.out += `<!----></div></div>`;
-        }
-        $$payload2.out += `<!--]-->`;
-      };
-      Popper_layer_force_mount($$payload, spread_props([
-        mergedProps,
-        {
-          enabled: contentState.root.open.current,
-          id,
-          onInteractOutside: handleInteractOutside,
-          onEscapeKeydown: handleEscapeKeydown,
-          onOpenAutoFocus: (e) => e.preventDefault(),
-          onCloseAutoFocus: (e) => e.preventDefault(),
-          trapFocus: false,
-          loop: false,
-          preventScroll: false,
-          forceMount: true,
-          popper,
-          $$slots: { popper: true }
-        }
-      ]));
-    }
-  } else {
-    $$payload.out += "<!--[!-->";
-    if (!forceMount) {
-      $$payload.out += "<!--[-->";
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    if (forceMount) {
+      $$payload2.out += "<!--[-->";
       {
-        let popper = function($$payload2, { props, wrapperProps }) {
-          const mergedProps2 = mergeProps(props, {
-            style: getFloatingContentCSSVars("tooltip")
+        let popper = function($$payload3, { props, wrapperProps }) {
+          const finalProps = mergeProps(props, {
+            style: {
+              outline: "none",
+              ...getFloatingContentCSSVars("menu")
+            }
           });
           if (child) {
-            $$payload2.out += "<!--[-->";
-            child($$payload2, {
-              props: mergedProps2,
+            $$payload3.out += "<!--[-->";
+            child($$payload3, {
+              props: finalProps,
               wrapperProps,
               ...contentState.snippetProps
             });
-            $$payload2.out += `<!---->`;
+            $$payload3.out += `<!---->`;
           } else {
-            $$payload2.out += "<!--[!-->";
-            $$payload2.out += `<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...mergedProps2 })}>`;
-            children?.($$payload2);
-            $$payload2.out += `<!----></div></div>`;
+            $$payload3.out += "<!--[!-->";
+            $$payload3.out += `<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...finalProps })}>`;
+            children?.($$payload3);
+            $$payload3.out += `<!----></div></div>`;
           }
-          $$payload2.out += `<!--]-->`;
+          $$payload3.out += `<!--]--> `;
+          Mounted($$payload3, {
+            get isMounted() {
+              return isMounted;
+            },
+            set isMounted($$value) {
+              isMounted = $$value;
+              $$settled = false;
+            }
+          });
+          $$payload3.out += `<!---->`;
         };
-        Popper_layer($$payload, spread_props([
+        Popper_layer_force_mount($$payload2, spread_props([
           mergedProps,
           {
-            present: contentState.root.open.current,
-            id,
+            enabled: contentState.parentMenu.open.current,
             onInteractOutside: handleInteractOutside,
             onEscapeKeydown: handleEscapeKeydown,
-            onOpenAutoFocus: (e) => e.preventDefault(),
-            onCloseAutoFocus: (e) => e.preventDefault(),
-            trapFocus: false,
-            loop: false,
-            preventScroll: false,
-            forceMount: false,
+            trapFocus: true,
+            loop,
+            forceMount: true,
+            id,
             popper,
             $$slots: { popper: true }
           }
         ]));
       }
     } else {
-      $$payload.out += "<!--[!-->";
+      $$payload2.out += "<!--[!-->";
+      if (!forceMount) {
+        $$payload2.out += "<!--[-->";
+        {
+          let popper = function($$payload3, { props, wrapperProps }) {
+            const finalProps = mergeProps(props, {
+              style: {
+                outline: "none",
+                ...getFloatingContentCSSVars("menu")
+              }
+            });
+            if (child) {
+              $$payload3.out += "<!--[-->";
+              child($$payload3, {
+                props: finalProps,
+                wrapperProps,
+                ...contentState.snippetProps
+              });
+              $$payload3.out += `<!---->`;
+            } else {
+              $$payload3.out += "<!--[!-->";
+              $$payload3.out += `<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...finalProps })}>`;
+              children?.($$payload3);
+              $$payload3.out += `<!----></div></div>`;
+            }
+            $$payload3.out += `<!--]--> `;
+            Mounted($$payload3, {
+              get isMounted() {
+                return isMounted;
+              },
+              set isMounted($$value) {
+                isMounted = $$value;
+                $$settled = false;
+              }
+            });
+            $$payload3.out += `<!---->`;
+          };
+          Popper_layer($$payload2, spread_props([
+            mergedProps,
+            {
+              present: contentState.parentMenu.open.current,
+              onInteractOutside: handleInteractOutside,
+              onEscapeKeydown: handleEscapeKeydown,
+              trapFocus: true,
+              loop,
+              forceMount: false,
+              id,
+              popper,
+              $$slots: { popper: true }
+            }
+          ]));
+        }
+      } else {
+        $$payload2.out += "<!--[!-->";
+      }
+      $$payload2.out += `<!--]-->`;
     }
-    $$payload.out += `<!--]-->`;
+    $$payload2.out += `<!--]-->`;
   }
-  $$payload.out += `<!--]-->`;
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
   bind_props($$props, { ref });
   pop();
 }
-function Tooltip_trigger($$payload, $$props) {
+function Menubar_content$1($$payload, $$props) {
   push();
   let {
-    children,
-    child,
+    ref = null,
+    interactOutsideBehavior = "close",
+    id = useId(),
+    $$slots,
+    $$events,
+    ...restProps
+  } = $$props;
+  const contentState = useMenubarContent({
+    id: box.with(() => id),
+    interactOutsideBehavior: box.with(() => interactOutsideBehavior),
+    ref: box.with(() => ref, (v) => ref = v)
+  });
+  const mergedProps = mergeProps(restProps, contentState.props);
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    Menu_content($$payload2, spread_props([
+      mergedProps,
+      {
+        preventScroll: false,
+        onInteractOutside: contentState.onInteractOutside,
+        onFocusOutside: contentState.onFocusOutside,
+        onCloseAutoFocus: contentState.onCloseAutoFocus,
+        onOpenAutoFocus: contentState.onOpenAutoFocus,
+        get ref() {
+          return ref;
+        },
+        set ref($$value) {
+          ref = $$value;
+          $$settled = false;
+        }
+      }
+    ]));
+  }
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
+  bind_props($$props, { ref });
+  pop();
+}
+function Menubar_trigger$1($$payload, $$props) {
+  push();
+  let {
     id = useId(),
     disabled = false,
-    type = "button",
+    children,
+    child,
     ref = null,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  const triggerState = useTooltipTrigger({
+  const triggerState = useMenubarTrigger({
     id: box.with(() => id),
     disabled: box.with(() => disabled ?? false),
     ref: box.with(() => ref, (v) => ref = v)
   });
-  const mergedProps = mergeProps(restProps, triggerState.props, { type });
+  useMenuDropdownTrigger({
+    id: box.with(() => id),
+    disabled: box.with(() => disabled ?? false),
+    ref: box.with(() => ref, (v) => ref = v)
+  });
+  const mergedProps = mergeProps(restProps, triggerState.props);
   Floating_layer_anchor($$payload, {
     id,
     children: ($$payload2) => {
@@ -2970,74 +3391,7 @@ function Tooltip_trigger($$payload, $$props) {
   bind_props($$props, { ref });
   pop();
 }
-function Tooltip_provider($$payload, $$props) {
-  push();
-  let {
-    children,
-    delayDuration = 700,
-    disableCloseOnTriggerClick = false,
-    disableHoverableContent = false,
-    disabled = false,
-    ignoreNonKeyboardFocus = false,
-    skipDelayDuration = 300
-  } = $$props;
-  useTooltipProvider({
-    delayDuration: box.with(() => delayDuration),
-    disableCloseOnTriggerClick: box.with(() => disableCloseOnTriggerClick),
-    disableHoverableContent: box.with(() => disableHoverableContent),
-    disabled: box.with(() => disabled),
-    ignoreNonKeyboardFocus: box.with(() => ignoreNonKeyboardFocus),
-    skipDelayDuration: box.with(() => skipDelayDuration)
-  });
-  children?.($$payload);
-  $$payload.out += `<!---->`;
-  pop();
-}
-function Tooltip_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    sideOffset = 4,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out += `<!---->`;
-    Tooltip_content$1($$payload2, spread_props([
-      {
-        sideOffset,
-        class: cn("animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-    $$payload2.out += `<!---->`;
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-const Root$1 = Tooltip;
-const Trigger = Tooltip_trigger;
-const Provider = Tooltip_provider;
-const sidebarMenuButtonVariants = tv({
+tv({
   base: "peer/menu-button ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none transition-[width,height,padding] focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
   variants: {
     variant: {
@@ -3052,224 +3406,19 @@ const sidebarMenuButtonVariants = tv({
   },
   defaultVariants: { variant: "default", size: "default" }
 });
-function Sidebar_menu_button($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    child,
-    variant = "default",
-    size: size2 = "default",
-    isActive = false,
-    tooltipContent,
-    tooltipContentProps,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const sidebar = useSidebar();
-  const buttonProps = {
-    class: cn(sidebarMenuButtonVariants({ variant, size: size2 }), className),
-    "data-sidebar": "menu-button",
-    "data-size": size2,
-    "data-active": isActive,
-    ...restProps
-  };
-  function Button2($$payload2, { props }) {
-    const mergedProps = mergeProps(buttonProps, props);
-    if (child) {
-      $$payload2.out += "<!--[-->";
-      child($$payload2, { props: mergedProps });
-      $$payload2.out += `<!---->`;
-    } else {
-      $$payload2.out += "<!--[!-->";
-      $$payload2.out += `<button${spread_attributes({ ...mergedProps })}>`;
-      children?.($$payload2);
-      $$payload2.out += `<!----></button>`;
+tv({
+  base: "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+  variants: {
+    side: {
+      top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 border-b",
+      bottom: "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 border-t",
+      left: "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
+      right: "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm"
     }
-    $$payload2.out += `<!--]-->`;
-  }
-  if (!tooltipContent) {
-    $$payload.out += "<!--[-->";
-    Button2($$payload, {});
-  } else {
-    $$payload.out += "<!--[!-->";
-    $$payload.out += `<!---->`;
-    Root$1($$payload, {
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        {
-          let child2 = function($$payload3, { props }) {
-            Button2($$payload3, { props });
-          };
-          Trigger($$payload2, { child: child2, $$slots: { child: true } });
-        }
-        $$payload2.out += `<!----> <!---->`;
-        Tooltip_content($$payload2, spread_props([
-          {
-            side: "right",
-            align: "center",
-            hidden: sidebar.state !== "collapsed" || sidebar.isMobile,
-            children: tooltipContent
-          },
-          tooltipContentProps
-        ]));
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    });
-    $$payload.out += `<!---->`;
-  }
-  $$payload.out += `<!--]-->`;
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_menu_item($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out += `<li${spread_attributes({
-    "data-sidebar": "menu-item",
-    class: clsx(cn("group/menu-item relative", className)),
-    ...restProps
-  })}>`;
-  children?.($$payload);
-  $$payload.out += `<!----></li>`;
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_menu($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out += `<ul${spread_attributes({
-    "data-sidebar": "menu",
-    class: clsx(cn("flex w-full min-w-0 flex-col gap-1", className)),
-    ...restProps
-  })}>`;
-  children?.($$payload);
-  $$payload.out += `<!----></ul>`;
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_provider($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    open = true,
-    onOpenChange = () => {
-    },
-    class: className,
-    style,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  setSidebar({
-    open: () => open,
-    setOpen: (value) => {
-      open = value;
-      onOpenChange(value);
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
-    }
-  });
-  $$payload.out += `<!---->`;
-  Provider($$payload, {
-    delayDuration: 0,
-    children: ($$payload2) => {
-      $$payload2.out += `<div${spread_attributes({
-        style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH)}; --sidebar-width-icon: ${stringify(SIDEBAR_WIDTH_ICON)}; ${stringify(style)}`,
-        class: clsx(cn("group/sidebar-wrapper has-[[data-variant=inset]]:bg-sidebar flex min-h-svh w-full", className)),
-        ...restProps
-      })}>`;
-      children?.($$payload2);
-      $$payload2.out += `<!----></div>`;
-    },
-    $$slots: { default: true }
-  });
-  $$payload.out += `<!---->`;
-  bind_props($$props, { ref, open });
-  pop();
-}
-function Panel_left($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    [
-      "rect",
-      {
-        "width": "18",
-        "height": "18",
-        "x": "3",
-        "y": "3",
-        "rx": "2"
-      }
-    ],
-    ["path", { "d": "M9 3v18" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "panel-left" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
-}
-function Sidebar_trigger($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    onclick,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const sidebar = useSidebar();
-  Button($$payload, spread_props([
-    {
-      type: "button",
-      onclick: (e) => {
-        onclick?.(e);
-        sidebar.toggle();
-      },
-      "data-sidebar": "trigger",
-      variant: "ghost",
-      size: "icon",
-      class: cn("h-7 w-7", className)
-    },
-    restProps,
-    {
-      children: ($$payload2) => {
-        Panel_left($$payload2, {});
-        $$payload2.out += `<!----> <span class="sr-only">Toggle Sidebar</span>`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
-  bind_props($$props, { ref });
-  pop();
-}
-function Sheet_overlay($$payload, $$props) {
+  },
+  defaultVariants: { side: "right" }
+});
+function Menubar($$payload, $$props) {
   push();
   let {
     ref = null,
@@ -3282,9 +3431,9 @@ function Sheet_overlay($$payload, $$props) {
   let $$inner_payload;
   function $$render_inner($$payload2) {
     $$payload2.out += `<!---->`;
-    Dialog_overlay($$payload2, spread_props([
+    Menubar$1($$payload2, spread_props([
       {
-        class: cn("data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0  fixed inset-0 z-50 bg-black/80", className)
+        class: cn("bg-background flex h-10 items-center space-x-1 rounded-md border p-1", className)
       },
       restProps,
       {
@@ -3305,49 +3454,19 @@ function Sheet_overlay($$payload, $$props) {
     $$render_inner($$inner_payload);
   } while (!$$settled);
   assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref, class: className });
+  bind_props($$props, { ref });
   pop();
 }
-function X($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    ["path", { "d": "M18 6 6 18" }],
-    ["path", { "d": "m6 6 12 12" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "x" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
-}
-const sheetVariants = tv({
-  base: "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
-  variants: {
-    side: {
-      top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 border-b",
-      bottom: "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 border-t",
-      left: "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
-      right: "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm"
-    }
-  },
-  defaultVariants: { side: "right" }
-});
-function Sheet_content($$payload, $$props) {
+function Menubar_content($$payload, $$props) {
   push();
   let {
     ref = null,
     class: className,
-    side = "right",
+    sideOffset = 8,
+    alignOffset = -4,
+    align = "start",
+    side = "bottom",
     portalProps,
-    children,
     $$slots,
     $$events,
     ...restProps
@@ -3360,11 +3479,14 @@ function Sheet_content($$payload, $$props) {
       portalProps,
       {
         children: ($$payload3) => {
-          Sheet_overlay($$payload3, {});
-          $$payload3.out += `<!----> <!---->`;
-          Dialog_content($$payload3, spread_props([
+          $$payload3.out += `<!---->`;
+          Menubar_content$1($$payload3, spread_props([
             {
-              class: cn(sheetVariants({ side }), className)
+              sideOffset,
+              align,
+              alignOffset,
+              side,
+              class: cn("bg-popover text-popover-foreground z-50 min-w-[12rem] rounded-md border p-1 shadow-md focus:outline-none", className)
             },
             restProps,
             {
@@ -3374,21 +3496,7 @@ function Sheet_content($$payload, $$props) {
               set ref($$value) {
                 ref = $$value;
                 $$settled = false;
-              },
-              children: ($$payload4) => {
-                children?.($$payload4);
-                $$payload4.out += `<!----> <!---->`;
-                Dialog_close($$payload4, {
-                  class: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary",
-                  children: ($$payload5) => {
-                    X($$payload5, { class: "size-4" });
-                    $$payload5.out += `<!----> <span class="sr-only">Close</span>`;
-                  },
-                  $$slots: { default: true }
-                });
-                $$payload4.out += `<!---->`;
-              },
-              $$slots: { default: true }
+              }
             }
           ]));
           $$payload3.out += `<!---->`;
@@ -3407,89 +3515,36 @@ function Sheet_content($$payload, $$props) {
   bind_props($$props, { ref });
   pop();
 }
-const Root = Dialog;
-function Sidebar($$payload, $$props) {
+function Menubar_item($$payload, $$props) {
   push();
   let {
     ref = null,
-    side = "left",
-    variant = "sidebar",
-    collapsible = "offcanvas",
     class: className,
-    children,
+    inset = void 0,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  const sidebar = useSidebar();
   let $$settled = true;
   let $$inner_payload;
   function $$render_inner($$payload2) {
-    if (collapsible === "none") {
-      $$payload2.out += "<!--[-->";
-      $$payload2.out += `<div${spread_attributes({
-        class: clsx(cn("bg-sidebar text-sidebar-foreground flex h-full w-[--sidebar-width] flex-col", className)),
-        ...restProps
-      })}>`;
-      children?.($$payload2);
-      $$payload2.out += `<!----></div>`;
-    } else {
-      $$payload2.out += "<!--[!-->";
-      if (sidebar.isMobile) {
-        $$payload2.out += "<!--[-->";
-        var bind_get = () => sidebar.openMobile;
-        var bind_set = (v) => sidebar.setOpenMobile(v);
-        $$payload2.out += `<!---->`;
-        Root($$payload2, spread_props([
-          {
-            get open() {
-              return bind_get();
-            },
-            set open($$value) {
-              bind_set($$value);
-            }
-          },
-          restProps,
-          {
-            children: ($$payload3) => {
-              $$payload3.out += `<!---->`;
-              Sheet_content($$payload3, {
-                "data-sidebar": "sidebar",
-                "data-mobile": "true",
-                class: "bg-sidebar text-sidebar-foreground w-[--sidebar-width] p-0 [&>button]:hidden",
-                style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH_MOBILE)};`,
-                side,
-                children: ($$payload4) => {
-                  $$payload4.out += `<div class="flex h-full w-full flex-col">`;
-                  children?.($$payload4);
-                  $$payload4.out += `<!----></div>`;
-                },
-                $$slots: { default: true }
-              });
-              $$payload3.out += `<!---->`;
-            },
-            $$slots: { default: true }
-          }
-        ]));
-        $$payload2.out += `<!---->`;
-      } else {
-        $$payload2.out += "<!--[!-->";
-        $$payload2.out += `<div class="text-sidebar-foreground group peer hidden md:block"${attr("data-state", sidebar.state)}${attr("data-collapsible", sidebar.state === "collapsed" ? collapsible : "")}${attr("data-variant", variant)}${attr("data-side", side)}><div${attr("class", clsx(cn("relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]" : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]")))}></div> <div${spread_attributes({
-          class: clsx(cn(
-            "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
-            side === "left" ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]" : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-            // Adjust the padding for floating and inset variants.
-            variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]" : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
-            className
-          )),
-          ...restProps
-        })}><div data-sidebar="sidebar" class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow">`;
-        children?.($$payload2);
-        $$payload2.out += `<!----></div></div></div>`;
+    $$payload2.out += `<!---->`;
+    Menu_item($$payload2, spread_props([
+      {
+        class: cn("data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50", inset && "pl-8", className)
+      },
+      restProps,
+      {
+        get ref() {
+          return ref;
+        },
+        set ref($$value) {
+          ref = $$value;
+          $$settled = false;
+        }
       }
-      $$payload2.out += `<!--]-->`;
-    }
-    $$payload2.out += `<!--]-->`;
+    ]));
+    $$payload2.out += `<!---->`;
   }
   do {
     $$settled = true;
@@ -3500,203 +3555,216 @@ function Sidebar($$payload, $$props) {
   bind_props($$props, { ref });
   pop();
 }
-function Map$1($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    [
-      "path",
+function Menubar_separator($$payload, $$props) {
+  push();
+  let {
+    ref = null,
+    class: className,
+    $$slots,
+    $$events,
+    ...restProps
+  } = $$props;
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    $$payload2.out += `<!---->`;
+    Menu_separator($$payload2, spread_props([
       {
-        "d": "M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"
-      }
-    ],
-    ["path", { "d": "M15 5.764v15" }],
-    ["path", { "d": "M9 3.236v15" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "map" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
+        class: cn("bg-muted -mx-1 my-1 h-px", className)
       },
-      $$slots: { default: true }
-    }
-  ]));
-}
-function Message_circle_question($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    [
-      "path",
-      { "d": "M7.9 20A9 9 0 1 0 4 16.1L2 22Z" }
-    ],
-    [
-      "path",
-      { "d": "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" }
-    ],
-    ["path", { "d": "M12 17h.01" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "message-circle-question" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
-}
-function Search($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    [
-      "circle",
-      { "cx": "11", "cy": "11", "r": "8" }
-    ],
-    ["path", { "d": "m21 21-4.3-4.3" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "search" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
-}
-function Settings($$payload, $$props) {
-  const $$sanitized_props = sanitize_props($$props);
-  const iconNode = [
-    [
-      "path",
+      restProps,
       {
-        "d": "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+        get ref() {
+          return ref;
+        },
+        set ref($$value) {
+          ref = $$value;
+          $$settled = false;
+        }
       }
-    ],
-    [
-      "circle",
-      { "cx": "12", "cy": "12", "r": "3" }
-    ]
-  ];
-  Icon($$payload, spread_props([
-    { name: "settings" },
-    $$sanitized_props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        $$payload2.out += `<!---->`;
-        slot($$payload2, $$props, "default", {}, null);
-        $$payload2.out += `<!---->`;
-      },
-      $$slots: { default: true }
-    }
-  ]));
+    ]));
+    $$payload2.out += `<!---->`;
+  }
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
+  bind_props($$props, { ref });
+  pop();
 }
-function MainSidebar($$payload) {
-  let defaultMap = "graph";
+function Menubar_trigger($$payload, $$props) {
+  push();
+  let {
+    ref = null,
+    class: className,
+    $$slots,
+    $$events,
+    ...restProps
+  } = $$props;
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    $$payload2.out += `<!---->`;
+    Menubar_trigger$1($$payload2, spread_props([
+      {
+        class: cn("data-[highlighted]:bg-accent data-[state=open]:bg-accent data-[highlighted]:text-accent-foreground data-[state=open]:text-accent-foreground flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none", className)
+      },
+      restProps,
+      {
+        get ref() {
+          return ref;
+        },
+        set ref($$value) {
+          ref = $$value;
+          $$settled = false;
+        }
+      }
+    ]));
+    $$payload2.out += `<!---->`;
+  }
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
+  bind_props($$props, { ref });
+  pop();
+}
+const Menu = Menubar_menu;
+function Menubar_1($$payload) {
   const items = [
     {
       title: "Map",
-      url: `/map/${defaultMap}`,
-      icon: Map$1
+      url: "",
+      icon: Map$1,
+      items: [
+        {
+          title: "Graph",
+          url: "/map/graph",
+          icon: Waypoints
+        },
+        {
+          title: "Directory",
+          url: "/map/directory",
+          icon: Folder_tree
+        },
+        {
+          title: "Tree",
+          url: "/map/tree",
+          icon: Network
+        }
+      ]
     },
     {
       title: "Forum",
       url: "/forum",
-      icon: Message_circle_question
+      icon: Message_circle_question,
+      items: []
     },
     {
       title: "Search",
       url: "/search",
-      icon: Search
+      icon: Search,
+      items: []
     },
     {
       title: "Settings",
       url: "/settings",
-      icon: Settings
+      icon: Settings,
+      items: []
     }
   ];
-  Sidebar($$payload, {
+  $$payload.out += `<div class="menubar flex items-center space-x-4 svelte-iqpcyv">`;
+  Menubar($$payload, {
     children: ($$payload2) => {
-      Sidebar_content($$payload2, {
-        children: ($$payload3) => {
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out += `<!---->P2P Forum`;
-                },
-                $$slots: { default: true }
-              });
-              $$payload4.out += `<!----> `;
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array = ensure_array_like(items);
-                      $$payload6.out += `<!--[-->`;
-                      for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-                        let item = each_array[$$index];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
-                            {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out += `<a${spread_attributes({ href: item.url, ...props })}>`;
-                                item.icon($$payload8, {});
-                                $$payload8.out += `<!----> <span>${escape_html(item.title)}</span></a>`;
-                              };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
-                            }
-                          },
-                          $$slots: { default: true }
-                        });
-                      }
-                      $$payload6.out += `<!--]-->`;
-                    },
-                    $$slots: { default: true }
+      const each_array = ensure_array_like(items);
+      $$payload2.out += `<!--[-->`;
+      for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
+        let item = each_array[$$index_1];
+        Menu($$payload2, {
+          children: ($$payload3) => {
+            Menubar_trigger($$payload3, {
+              class: "font-medium",
+              children: ($$payload4) => {
+                $$payload4.out += `<div class="menubar-item flex items-center svelte-iqpcyv">`;
+                if (item.url !== "") {
+                  $$payload4.out += "<!--[-->";
+                  $$payload4.out += `<a${attr("href", item.url)} class="flex items-center space-x-2">`;
+                  item.icon($$payload4, {
+                    class: "h-4 w-4",
+                    style: "margin-right: .5rem"
                   });
+                  $$payload4.out += `<!----> ${escape_html(item.title)}</a>`;
+                } else {
+                  $$payload4.out += "<!--[!-->";
+                  $$payload4.out += `<div class="flex items-center space-x-2">`;
+                  item.icon($$payload4, {
+                    class: "h-4 w-4",
+                    style: "margin-right: .5rem"
+                  });
+                  $$payload4.out += `<!----> ${escape_html(item.title)}</div>`;
+                }
+                $$payload4.out += `<!--]--></div>`;
+              },
+              $$slots: { default: true }
+            });
+            $$payload3.out += `<!----> `;
+            if (item.items.length > 0) {
+              $$payload3.out += "<!--[-->";
+              Menubar_content($$payload3, {
+                children: ($$payload4) => {
+                  const each_array_1 = ensure_array_like(item.items);
+                  $$payload4.out += `<!--[-->`;
+                  for (let index = 0, $$length2 = each_array_1.length; index < $$length2; index++) {
+                    let subitem = each_array_1[index];
+                    Menubar_item($$payload4, {
+                      children: ($$payload5) => {
+                        $$payload5.out += `<a${attr("href", subitem.url)} class="flex items-center space-x-2">`;
+                        subitem.icon($$payload5, {
+                          class: "h-4 w-4",
+                          style: "margin-right: .5rem"
+                        });
+                        $$payload5.out += `<!----> ${escape_html(subitem.title)}</a>`;
+                      },
+                      $$slots: { default: true }
+                    });
+                    $$payload4.out += `<!----> `;
+                    if (index < item.items.length - 1) {
+                      $$payload4.out += "<!--[-->";
+                      Menubar_separator($$payload4, {});
+                    } else {
+                      $$payload4.out += "<!--[!-->";
+                    }
+                    $$payload4.out += `<!--]-->`;
+                  }
+                  $$payload4.out += `<!--]-->`;
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out += `<!---->`;
-            },
-            $$slots: { default: true }
-          });
-        },
-        $$slots: { default: true }
-      });
+            } else {
+              $$payload3.out += "<!--[!-->";
+            }
+            $$payload3.out += `<!--]-->`;
+          },
+          $$slots: { default: true }
+        });
+      }
+      $$payload2.out += `<!--]-->`;
     },
     $$slots: { default: true }
   });
+  $$payload.out += `<!----></div>`;
 }
 function _layout($$payload, $$props) {
   push();
   let { children } = $$props;
-  $$payload.out += `<!---->`;
-  Sidebar_provider($$payload, {
-    children: ($$payload2) => {
-      MainSidebar($$payload2);
-      $$payload2.out += `<!----> <main><!---->`;
-      Sidebar_trigger($$payload2, {});
-      $$payload2.out += `<!----> `;
-      children?.($$payload2);
-      $$payload2.out += `<!----></main>`;
-    },
-    $$slots: { default: true }
-  });
-  $$payload.out += `<!---->`;
+  Menubar_1($$payload);
+  $$payload.out += `<!----> <main>`;
+  children?.($$payload);
+  $$payload.out += `<!----></main>`;
   pop();
 }
 export {

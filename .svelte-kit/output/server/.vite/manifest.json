@@ -9,13 +9,6 @@
       "_environment.js"
     ]
   },
-  "_Icon.js": {
-    "file": "chunks/Icon.js",
-    "name": "Icon",
-    "imports": [
-      "_index2.js"
-    ]
-  },
   "_auth.js": {
     "file": "chunks/auth.js",
     "name": "auth",
@@ -36,7 +29,6 @@
     "file": "chunks/client.js",
     "name": "client",
     "imports": [
-      "_index4.js",
       "_exports.js",
       "_index2.js"
     ]
@@ -62,7 +54,11 @@
   },
   "_exports.js": {
     "file": "chunks/exports.js",
-    "name": "exports"
+    "name": "exports",
+    "imports": [
+      "_index2.js",
+      "_equality.js"
+    ]
   },
   "_false.js": {
     "file": "chunks/false.js",
@@ -94,14 +90,6 @@
       "_index2.js"
     ]
   },
-  "_index4.js": {
-    "file": "chunks/index4.js",
-    "name": "index",
-    "imports": [
-      "_index2.js",
-      "_equality.js"
-    ]
-  },
   "_internal.js": {
     "file": "chunks/internal.js",
     "name": "internal",
@@ -113,6 +101,13 @@
     ],
     "dynamicImports": [
       "src/hooks.server.ts"
+    ]
+  },
+  "_waypoints.js": {
+    "file": "chunks/waypoints.js",
+    "name": "waypoints",
+    "imports": [
+      "_index2.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte": {
@@ -135,7 +130,6 @@
       "_environment.js",
       "_index.js",
       "_exports.js",
-      "_index4.js",
       "_internal.js"
     ]
   },
@@ -165,12 +159,12 @@
     "imports": [
       "_index2.js",
       "_button.js",
-      "_events.js",
       "_index-server.js",
-      "_Icon.js"
+      "_waypoints.js",
+      "_events.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.Cx1XIXT2.css"
+      "_app/immutable/assets/_layout.Cb7N2Cwg.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -182,7 +176,7 @@
       "_index2.js",
       "_button.js",
       "_client.js",
-      "_Icon.js"
+      "_waypoints.js"
     ]
   },
   "src/routes/api/catergory/[catergoryId]/threads/+server.ts": {
@@ -288,8 +282,10 @@
     "isEntry": true,
     "imports": [
       "_index2.js",
-      "_index4.js",
-      "_index-server.js"
+      "_exports.js",
+      "_index-server.js",
+      "_button.js",
+      "_client.js"
     ],
     "css": [
       "_app/immutable/assets/_page.CRdwX-pL.css"

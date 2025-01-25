@@ -1,5 +1,5 @@
 import { u as updated, s as stores } from "./client.js";
-import { y as getContext } from "./index2.js";
+import { u as getContext } from "./index2.js";
 ({
   get current() {
     return updated.current;

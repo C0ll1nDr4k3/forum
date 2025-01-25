@@ -6,26 +6,20 @@ async function POST(event) {
 }
 async function GET(event) {
   console.log("GET request received", event);
-  return json([
+  const posts = [
     {
-      id: 1,
-      user: "User 1",
-      name: "Post 1",
-      content: "This is the content of post 1"
-    },
-    {
-      id: 2,
-      user: "User 2",
-      name: "Post 2",
-      content: "This is the content of post 2"
-    },
-    {
-      id: 3,
-      user: "User 3",
-      name: "Post 3",
-      content: "This is the content of post 3"
+      threadId: 1,
+      postId: 0,
+      parentPostId: 1,
+      userId: 1,
+      content: "This is a test post",
+      likes: 0,
+      createdAt: (/* @__PURE__ */ new Date()).toISOString(),
+      updatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+      attachments: []
     }
-  ]);
+  ];
+  return json(posts);
 }
 export {
   GET,
