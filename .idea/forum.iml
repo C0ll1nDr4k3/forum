@@ -6,6 +6,12 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/output/server/stylesheets" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/api/users" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/auth/sign-in" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/auth/sign-out" />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/forum " />
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit/types/src/routes/signin" />
       <excludeFolder url="file://$MODULE_DIR$/.vercel" />
     </content>
     <orderEntry type="inheritedJdk" />
