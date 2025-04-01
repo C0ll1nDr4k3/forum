@@ -1,4 +1,4 @@
-import type { Post } from "$lib/forum/Post";
+import type { Post } from "$lib/common/Post";
 
 // `Thread`s encapsulate `Post`s.
 

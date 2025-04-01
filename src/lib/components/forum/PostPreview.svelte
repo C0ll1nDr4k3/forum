@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Post } from "$lib/forum/Post";
+	import type { Post } from "$lib/common/Post";
 	const { post }: { post: Post } = $props();
 </script>
 

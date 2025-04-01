@@ -12,13 +12,13 @@
 // );
 // ```
 
-import type { Attachment } from "$lib/forum/Attachment";
+import type { Attachment } from "$lib/common/Attachment";
 
 export type Post = {
 	postId: number;
 	threadId: number;
 	userId: number;
-	parentPostId: number;
+	parentPostId?: number;
 	content: string;
 	likes: number;
 	createdAt: string;

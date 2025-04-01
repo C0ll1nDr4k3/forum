@@ -119,7 +119,7 @@ FROM threads t
          JOIN users u ON t.user_id = u.user_id
          LEFT JOIN posts p ON t.thread_id = p.thread_id
 WHERE t.thread_id = $1
-ORDER BY p.created_at ASC;
+ORDER BY p.created_at;
 ```
 
 To Search Posts:

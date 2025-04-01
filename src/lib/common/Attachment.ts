@@ -14,7 +14,7 @@ export type Attachment = {
 	attachmentId: number;
 	postId: number;
 	fileUrl: string;
-	fileType: string;
-	fileSize: number;
+	fileType?: string;
+	fileSize?: number;
 	uploadedAt: string;
 };
