@@ -6,7 +6,7 @@
 <article>
 	<header>
 		<h2>{post.content}</h2>
-		<p>Posted by {post.userId} on {post.createdAt}</p>
+		<p>Posted by {post.user_id} on {post.created_at}</p>
 	</header>
 
 	{#if post.attachments}

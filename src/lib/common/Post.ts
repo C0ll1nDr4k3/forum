@@ -15,14 +15,14 @@
 import type { Attachment } from "$lib/common/Attachment";
 
 export type Post = {
-	postId: number;
-	threadId: number;
-	userId: number;
-	parentPostId?: number;
+	post_id: number;
+	thread_id: number;
+	user_id: number;
+	parent_post_id?: number;
 	content: string;
 	likes: number;
-	createdAt: string;
-	updatedAt: string;
+	created_at: string;
+	updated_at: string;
 
 	// This diverts from the original schema, but was added for convenience.
 	attachments: Attachment[];

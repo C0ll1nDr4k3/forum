@@ -1,5 +1,4 @@
 <script lang="ts">
-	import MapSelector from "$lib/components/maps/MapSelector.svelte";
 </script>
 
 <h1>Welcome to SvelteKit</h1>

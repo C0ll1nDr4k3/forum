@@ -29,19 +29,22 @@ export async function POST(event: Request): Promise<Response> {
 
 export async function GET(event: Request): Promise<Response> {
 	console.log("GET /api/posts", event);
-	const posts: Post[] = [
-		{
-			threadId: 1,
-			postId: 0,
-			parentPostId: 1,
-			userId: 69,
-			content: "This is a test post.",
-			likes: 0,
-			createdAt: new Date().toISOString(),
-			updatedAt: new Date().toISOString(),
-			attachments: []
-		}
-	];
-
+	// const posts: Post[] = [
+	// 	{
+	// 		threadId: 1,
+	// 		postId: 0,
+	// 		parentPostId: 1,
+	// 		userId: 69,
+	// 		content: "This is a test post.",
+	// 		likes: 0,
+	// 		createdAt: new Date().toISOString(),
+	// 		updatedAt: new Date().toISOString(),
+	// 		attachments: []
+	// 	}
+	// ];
+	const posts = await sql`
+		SELECT * FROM posts
+		ORDER BY created_at DESC
+	`;
 	return json(posts);
 }
