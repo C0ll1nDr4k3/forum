@@ -38,7 +38,7 @@
 
 			<div class="flex gap-1">
 				{#if thread.is_sticky}
-					<Badge variant="secondary">Sticky</Badge>
+					<Badge variant="secondary">Pinned</Badge>
 				{/if}
 				{#if thread.is_locked}
 					<Badge variant="destructive">Locked</Badge>

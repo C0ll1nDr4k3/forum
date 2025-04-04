@@ -22,6 +22,6 @@
 </script>
 
 <Avatar class={avatarSize}>
-	<AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${getUserInitials(userId)}`} />
+<!--	<AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${getUserInitials(userId)}`} />-->
 	<AvatarFallback>{getUserInitials(userId)}</AvatarFallback>
 </Avatar>
