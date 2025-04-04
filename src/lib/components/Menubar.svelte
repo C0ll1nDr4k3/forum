@@ -47,7 +47,7 @@
 			url: "/settings",
 			icon: Settings,
 			items: []
-		},
+		}
 	];
 </script>
 
@@ -91,25 +91,23 @@
 			</Menubar.Menu>
 		{/each}
 
-		<Button onclick={toggleMode} variant="ghost" size="icon">
+		<Button onclick={toggleMode} variant="ghost" class="light-dark-toggle">
 			<Sun
 				class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
 			/>
 			<Moon
 				class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
 			/>
-			<span class="sr-only">Toggle theme</span>
+						<span class="sr-only">Toggle theme</span>
 		</Button>
 	</Menubar.Root>
 </div>
 
 <style>
-    /*.menubar {*/
-    /*    margin: 1rem;*/
-    /*    z-index: 1000;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*}*/
+    .light-dark-toggle {
+				background-color: rgba(255, 255, 255, 0.1);
+				border-radius: 0.5rem;
+    }
 
     .menubar {
         position: fixed;
@@ -126,11 +124,6 @@
         /*backdrop-filter: blur(10px); !* Blur effect *!*/
         /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); !* Optional: Add a shadow for better visibility *!*/
     }
-
-    /*.menubar-root {*/
-    /*    backdrop-filter: blur(10px);*/
-    /*    background-color: rgba(255, 255, 255, 0.5);*/
-    /*}*/
 
     .menubar-item {
         padding: 0.05rem;

@@ -23,23 +23,13 @@
 		DropdownMenuTrigger
 	} from "$lib/components/ui/dropdown-menu";
 	import { onMount } from "svelte";
-	import type { Thread } from "$lib/common/Thread";
 	import type { Post } from "$lib/common/Post";
 	import type { Attachment } from "$lib/common/Attachment";
-
-	// Debug log on mount
-	onMount(() => {
-		console.log("Thread data:", thread);
-		console.log("Posts data:", posts);
-	});
 
 	// Use optional chaining for potentially undefined data
 	// Ensure we have defaults for thread and posts
 	const { data } = $props();
-	const { thread, posts } = data
-
-	console.log("Thread data:", thread);
-	console.log("Posts data:", posts);
+	const { thread, posts } = data;
 
 	// Organize posts into a hierarchy (parent posts and their replies)
 	const postHierarchy = $derived(organizePostsHierarchy(posts || []));
@@ -276,7 +266,9 @@
 									</div>
 								{:else if preview.type === 'video'}
 									<div class="relative aspect-video rounded-md overflow-hidden border bg-muted">
-										<video src={preview.url} controls class="object-cover w-full h-full"></video>
+										<video src={preview.url} controls class="object-cover w-full h-full">
+											<track kind="captions" src="" />
+										</video>
 									</div>
 								{:else}
 									<div class="flex items-center p-2 border rounded-md bg-muted">
@@ -364,7 +356,9 @@
 												</div>
 											{:else if preview.type === 'video'}
 												<div class="relative aspect-video rounded-md overflow-hidden border bg-muted">
-													<video src={preview.url} controls class="object-cover w-full h-full"></video>
+													<video src={preview.url} controls class="object-cover w-full h-full">
+														<track kind="captions" src="" />
+													</video>
 												</div>
 											{:else}
 												<div class="flex items-center p-2 border rounded-md bg-muted">
@@ -418,14 +412,14 @@
 </div>
 
 <style>
-	.posts {
-		/*padding-top: 10rem;*/
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		max-width: 800px;
-		margin-top: 7.5rem;
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .posts {
+        /*padding-top: 10rem;*/
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 800px;
+        margin-top: 7.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
