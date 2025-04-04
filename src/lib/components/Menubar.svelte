@@ -1,10 +1,18 @@
 <script lang="ts">
-	import { Map, MessageCircleQuestion, Search, Settings } from "lucide-svelte";
-	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import * as Menubar from "$lib/components/ui/menubar/index.js";
+	import {
+		FolderTree,
+		Map,
+		MessageCircleQuestion,
+		Moon,
+		Network,
+		Search,
+		Settings,
+		Sun,
+		Waypoints
+	} from "lucide-svelte";
 	import { toggleMode } from "mode-watcher";
-	import { Waypoints, FolderTree, Network, Sun, Moon } from "lucide-svelte";
 	import { Button } from "$lib/components/ui/button/index.js";
+	import * as Menubar from "$lib/components/ui/menubar/index.js";
 
 	// Menu items.
 	const items = [
@@ -98,17 +106,12 @@
 			<Moon
 				class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
 			/>
-						<span class="sr-only">Toggle theme</span>
+			<span class="sr-only">Toggle theme</span>
 		</Button>
 	</Menubar.Root>
 </div>
 
 <style>
-    .light-dark-toggle {
-				background-color: rgba(255, 255, 255, 0.1);
-				border-radius: 0.5rem;
-    }
-
     .menubar {
         position: fixed;
         padding: 1rem;

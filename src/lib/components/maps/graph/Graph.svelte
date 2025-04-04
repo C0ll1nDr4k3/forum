@@ -1,14 +1,6 @@
 <script lang="ts">
 	import { writable } from "svelte/store";
-	import {
-		SvelteFlow,
-		Background,
-		Controls,
-		MiniMap,
-		Position,
-		type Node,
-		type Edge
-	} from "@xyflow/svelte";
+	import { Background, Controls, type Edge, MiniMap, type Node, Position, SvelteFlow } from "@xyflow/svelte";
 
 	import ColorSelectorNode from "./ColorSelectorNode.svelte";
 

@@ -1,13 +1,14 @@
 <script lang="ts">
 	// Import shadcn components
 	// import { Card, CardContent, Card.CardDescription, Card.CardFooter, CardHeader, Card.CardTitle } from "$lib/components/ui/card";
-	import * as Card from "$lib/components/ui/card/index.js";
 	// import { Avatar, AvatarFallback, AvatarImage } from "$lib/components/ui/avatar";
-	import * as Avatar from "$lib/components/ui/avatar/index.js";
 	import { Badge } from "$lib/components/ui/badge";
 	import { formatDistance } from "date-fns";
-	import { ThumbsUp, MessageSquare, Calendar, Clock } from "lucide-svelte";
+	import { Calendar, Clock, ThumbsUp } from "lucide-svelte";
 	import type { Thread } from "$lib/common/Thread";
+	import * as Card from "$lib/components/ui/card/index.js";
+	import * as Avatar from "$lib/components/ui/avatar/index.js";
+
 
 	const { thread }: { thread: Thread } = $props();
 
@@ -19,7 +20,7 @@
 	const userInitials = thread.user_id.toString().substring(0, 2).toUpperCase();
 </script>
 
-<Card.Root class="thread-preview w-full max-w-3xl hover:shadow-md transition-shadow">
+<Card.Root class="w-full max-w-3xl hover:shadow-md transition-shadow">
 	<Card.CardHeader class="pb-2">
 		<div class="flex justify-between items-start">
 			<div class="flex-1">
@@ -28,7 +29,7 @@
 				</Card.CardTitle>
 				<Card.CardDescription class="flex items-center gap-2 mt-1">
 					<Avatar.Root class="w-6 h-6">
-<!--						<Avatar.AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${userInitials}`} alt="User avatar" />-->
+						<!--						<Avatar.AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${userInitials}`} alt="User avatar" />-->
 						<Avatar.AvatarFallback>{userInitials}</Avatar.AvatarFallback>
 					</Avatar.Root>
 					<span>Posted by User #{thread.user_id} {formattedCreatedDate}</span>
@@ -52,10 +53,10 @@
 				<ThumbsUp class="w-4 h-4" />
 				<span>{thread.likes}</span>
 			</div>
-<!--			<div class="flex items-center gap-1">-->
-<!--				<MessageSquare class="w-4 h-4" />-->
-<!--				<span>{thread.replies_count || 0}</span>-->
-<!--			</div>-->
+			<!--			<div class="flex items-center gap-1">-->
+			<!--				<MessageSquare class="w-4 h-4" />-->
+			<!--				<span>{thread.replies_count || 0}</span>-->
+			<!--			</div>-->
 		</div>
 
 		<div class="flex items-center gap-4">

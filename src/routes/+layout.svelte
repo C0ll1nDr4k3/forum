@@ -1,9 +1,9 @@
 <script lang="ts">
 	import "../app.css";
-
-	let { children } = $props();
 	import MainMenubar from "$lib/components/Menubar.svelte";
 	import { ModeWatcher } from "mode-watcher";
+
+	let { children } = $props();
 </script>
 
 <ModeWatcher />

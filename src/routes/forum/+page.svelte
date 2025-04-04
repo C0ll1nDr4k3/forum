@@ -3,7 +3,6 @@
 	import type { Thread } from "$lib/common/Thread";
 
 	const { data } = $props();
-	console.log(data);
 	const { threads }: { threads: Thread[] } = data;
 </script>
 
@@ -15,13 +14,14 @@
 
 <style>
     .threads {
-				/*padding-top: 10rem;*/
+        /*padding-top: 10rem;*/
         display: flex;
         flex-direction: column;
+				align-items: center;
         gap: 1rem;
-        max-width: 800px;
-				margin-top: 7.5rem;
-				margin-left: auto;
-				margin-right: auto;
+        max-width: 90%;
+        margin-top: 7.5rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>

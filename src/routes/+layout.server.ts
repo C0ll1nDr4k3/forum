@@ -1,5 +1,4 @@
 import type { LayoutServerLoad } from "./$types";
-import { redirect } from "@sveltejs/kit";
 
 export const load: LayoutServerLoad = async (event) => {
 	// Define the list of authentication-related routes
