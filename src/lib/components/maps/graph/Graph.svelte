@@ -77,14 +77,23 @@
 		}
 	];
 
-	const nodes = writable<Node[]>(initialNodes);
+	const nodes = writable(initialNodes);
 	const edges = writable(initialEdges);
+	// console.log(initialEdges, initialNodes);
 </script>
 
-<div style="height:100vh;">
+<div class="graph">
+	<!--<div style ="height: 100vh">-->
 	<SvelteFlow {nodes} {edges} {nodeTypes} style="background: {$bgColor}" fitView>
 		<Background />
 		<Controls />
 		<MiniMap />
 	</SvelteFlow>
 </div>
+
+<style>
+    .graph {
+        /*height: 93.5vh;*/
+        height: 100vh;
+    }
+</style>

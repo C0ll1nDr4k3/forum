@@ -1,11 +1,27 @@
 <script lang="ts">
-	import PostPreview from "$lib/components/forum/PostPreview.svelte";
-	import type { Post } from "$lib/common/Post";
+	import ThreadPreview from "$lib/components/forum/ThreadPreview.svelte";
+	import type { Thread } from "$lib/common/Thread";
 
 	const { data } = $props();
-	const { posts }: { posts: Post[] } = data;
+	console.log(data);
+	const { threads }: { threads: Thread[] } = data;
 </script>
 
-{#each posts as post}
-	<PostPreview {post} />
-{/each}
+<div class="threads">
+	{#each threads as thread}
+		<ThreadPreview {thread} />
+	{/each}
+</div>
+
+<style>
+    .threads {
+				/*padding-top: 10rem;*/
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 800px;
+				margin-top: 7.5rem;
+				margin-left: auto;
+				margin-right: auto;
+    }
+</style>

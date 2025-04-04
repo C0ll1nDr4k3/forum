@@ -3,12 +3,13 @@
 
 	let { children } = $props();
 	import MainMenubar from "$lib/components/Menubar.svelte";
-
-	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import { ModeWatcher } from "mode-watcher";
 </script>
 
+<ModeWatcher />
+
 <MainMenubar />
+
 <main>
 	{@render children?.()}
 </main>
-

@@ -2,7 +2,8 @@
 
 import { json } from "@sveltejs/kit";
 import sql from "$lib/db/database";
-import type { Post } from "$lib/common/Post";
+
+// import type { Post } from "$lib/common/Post";
 
 export async function POST(event: Request): Promise<Response> {
 	console.log("POST /api/posts");
@@ -10,10 +11,10 @@ export async function POST(event: Request): Promise<Response> {
 	try {
 		const { threadId, userId, content } = await event.json();
 		const [post] = await sql`
-						INSERT INTO posts (thread_id, user_id, content)
-						VALUES (${threadId}, ${userId}, ${content})
-						RETURNING *
-				`;
+        INSERT INTO posts (thread_id, user_id, content)
+        VALUES (${threadId}, ${userId}, ${content})
+        RETURNING *
+		`;
 		console.log("Created post", post);
 	} catch (error) {
 		return new Response(
@@ -27,8 +28,7 @@ export async function POST(event: Request): Promise<Response> {
 	});
 }
 
-export async function GET(event: Request): Promise<Response> {
-	console.log("GET /api/posts", event);
+export async function GET(): Promise<Response> {
 	// const posts: Post[] = [
 	// 	{
 	// 		threadId: 1,
@@ -42,9 +42,10 @@ export async function GET(event: Request): Promise<Response> {
 	// 		attachments: []
 	// 	}
 	// ];
-	const posts = await sql`
-		SELECT * FROM posts
-		ORDER BY created_at DESC
+	const threads = await sql`
+      SELECT *
+      FROM threads
+      ORDER BY created_at DESC
 	`;
-	return json(posts);
+	return json(threads);
 }

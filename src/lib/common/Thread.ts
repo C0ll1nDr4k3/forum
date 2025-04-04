@@ -17,14 +17,15 @@ import type { Post } from "$lib/common/Post";
 // ```
 
 export type Thread = {
-	threadId: number;
-	categoryId: number;
-	userId: number;
+	thread_id: number;
+	category_id: number;
+	user_id: number;
 	title: string;
-	createdAt: string;
-	updatedAt: string;
-	isLocked: boolean;
-	isSticky: boolean;
+	likes: number;
+	created_at: string;
+	updated_at: string;
+	is_locked: boolean;
+	is_sticky: boolean;
 
 	// This diverts from the original schema, but was added for convenience.
 	posts: Post[];

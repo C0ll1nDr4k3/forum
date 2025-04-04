@@ -1,14 +1,3 @@
-# database
-
-## Local Development
-
-We utilize Neon, so not much local setup is required, but if you'd like to run it locally with Postgres, you can do so by running `sample.sql`.
-
-## Schema
-
-Our database's schema is defined by `init.sql`.
-
-```sql
 CREATE TABLE users
 (
     user_id       SERIAL PRIMARY KEY,
@@ -89,54 +78,3 @@ CREATE TABLE private_messages
     sent_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     is_read     BOOLEAN                  DEFAULT FALSE
 );
-```
-
-For performance reasons, we utilize the following indexes:
-
-```sql
-CREATE INDEX idx_threads_category_id ON threads (category_id);
-CREATE INDEX idx_posts_thread_id_created_at ON posts (thread_id, created_at);
-CREATE INDEX idx_thread_tags_tag_id ON thread_tags (tag_id);
-```
-
-For text search, we utilize the following index:
-
-```sql
-ALTER TABLE posts
-    ADD COLUMN tsv_content tsvector GENERATED ALWAYS AS (to_tsvector('english', content)) STORED;
-
-CREATE INDEX idx_posts_tsv_content ON posts USING GIN (tsv_content);
-```
-
-## Examples
-
-To Fetch Thread with Posts:
-
-```sql
-SELECT t.thread_id,
-       t.title,
-       t.created_at,
-       u.username   AS author,
-       p.post_id,
-       p.content,
-       p.created_at AS post_created_at
-FROM threads t
-         JOIN users u ON t.user_id = u.user_id
-         LEFT JOIN posts p ON t.thread_id = p.thread_id
-WHERE t.thread_id = $1
-ORDER BY p.created_at;
-```
-
-To Search Posts:
-
-```sql
-SELECT p.post_id,
-       p.content,
-       p.created_at,
-       u.username
-FROM posts p
-         JOIN users u ON p.user_id = u.user_id
-WHERE p.tsv_content @@ plainto_tsquery('search terms')
-ORDER BY p.created_at DESC
-LIMIT 50;
-```
