@@ -61,12 +61,16 @@
 
 <div class="menubar flex items-center space-x-4">
 	<Menubar.Root
-		style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.03); border-color: transparent; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+		style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.03); border-color: transparent; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+	>
+		<!-- {#each items as item (item.title)}
+			<p>{item.title}</p>
+		{/each} -->
 		{#each items as item (item.title)}
 			<Menubar.Menu>
 				<Menubar.Trigger class="font-medium">
 					{#if item.url !== ""}
-						<a href="{item.url}" class="menubar-item flex items-center">
+						<a href={item.url} class="menubar-item flex items-center">
 							<p class="flex items-center space-x-2">
 								<item.icon class="h-4 w-4" style="margin-right: .5rem" />
 								{item.title}
@@ -82,7 +86,7 @@
 				{#if item.items.length > 0}
 					<Menubar.Content class="menubar-content">
 						{#each item.items as subitem, index}
-							<a href="{subitem.url}">
+							<a href={subitem.url}>
 								<Menubar.Item class="menubar-content">
 									<p class="flex items-center space-x-2">
 										<subitem.icon class="h-4 w-4" style="margin-right: .5rem" />
@@ -112,23 +116,23 @@
 </div>
 
 <style>
-    .menubar {
-        position: fixed;
-        padding: 1rem;
-        top: 0;
-        left: 0;
-        width: 100%;
-        margin: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        /*background-color: rgba(255, 255, 255, 0.5); !* Semi-transparent background *!*/
-        background-color: transparent;
-        /*backdrop-filter: blur(10px); !* Blur effect *!*/
-        /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); !* Optional: Add a shadow for better visibility *!*/
-    }
+	.menubar {
+		position: fixed;
+		padding: 1rem;
+		top: 0;
+		left: 0;
+		width: 100%;
+		margin: 0;
+		z-index: 1000;
+		display: flex;
+		justify-content: center;
+		/*background-color: rgba(255, 255, 255, 0.5); !* Semi-transparent background *!*/
+		background-color: transparent;
+		/*backdrop-filter: blur(10px); !* Blur effect *!*/
+		/*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); !* Optional: Add a shadow for better visibility *!*/
+	}
 
-    .menubar-item {
-        padding: 0.05rem;
-    }
+	.menubar-item {
+		padding: 0.05rem;
+	}
 </style>

@@ -582,11 +582,11 @@ __metadata:
   linkType: hard
 
 "@internationalized/date@npm:^3.5.6":
-  version: 3.6.0
-  resolution: "@internationalized/date@npm:3.6.0"
+  version: 3.8.0
+  resolution: "@internationalized/date@npm:3.8.0"
   dependencies:
     "@swc/helpers": "npm:^0.5.0"
-  checksum: 10c0/64404d8e20f46a53d77b49e62102fb6d1fa5ee80d35b8d8e8c4129e968a679330bc897131b6ba27e5777da6549dfa2eaa72d123adb23e5bfd4e52ab3f07d38da
+  checksum: 10c0/7ac0cae2f1832fe2f2950e22208812ed8bf2845dd903ec93bd3aa024ca020124e137638b11bb5817b92abde1daa3f881cc81d62db0b20f5db2d9e07ab0cd9e01
   languageName: node
   linkType: hard
 
@@ -655,12 +655,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lucide/svelte@npm:^0.487.0":
-  version: 0.487.0
-  resolution: "@lucide/svelte@npm:0.487.0"
+"@lucide/svelte@npm:^0.503.0":
+  version: 0.503.0
+  resolution: "@lucide/svelte@npm:0.503.0"
   peerDependencies:
     svelte: ^5
-  checksum: 10c0/b5260fd72013be7f370c096a60bbdedd0063e9fbb4c10c290a9409b4c316ea1ff8984fabea5eaee423660ddb64ef8f845fa0131a61493fae89ff88f5c96aa1b3
+  checksum: 10c0/db2b30621a91b551179eb83afb5ccb28400e030dca5f65a98c2283468933c094c1efb64a79946459c5127c5731650f7839e0ea26dfff319fdc4eb73e4a523ecf
   languageName: node
   linkType: hard
 
@@ -1452,9 +1452,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bits-ui@npm:^1.3.16":
-  version: 1.3.16
-  resolution: "bits-ui@npm:1.3.16"
+"bits-ui@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "bits-ui@npm:1.4.1"
   dependencies:
     "@floating-ui/core": "npm:^1.6.4"
     "@floating-ui/dom": "npm:^1.6.7"
@@ -1465,7 +1465,7 @@ __metadata:
     tabbable: "npm:^6.2.0"
   peerDependencies:
     svelte: ^5.11.0
-  checksum: 10c0/17b9a9341213f5ce1ef0722d7b3d6bfea4111e14a2f7b90048b523cb13b6792bb4634be7ed7e372e828b56ec419cc7a473c7c923624b72f492bff59bb71fa064
+  checksum: 10c0/2a223be124b27a3ea16ac9f82ae88d4118b9f126d915e2ed3f5ac92bda5ca807e740e6b4de81ca606f811f0f6413b5dd876724c7ac3a456f77723cd3297ce7e1
   languageName: node
   linkType: hard
 
@@ -2433,7 +2433,7 @@ __metadata:
     "@auth/sveltekit": "npm:^1.7.4"
     "@eslint/compat": "npm:^1.2.3"
     "@eslint/js": "npm:^9.17.0"
-    "@lucide/svelte": "npm:^0.487.0"
+    "@lucide/svelte": "npm:^0.503.0"
     "@neondatabase/serverless": "npm:^0.10.4"
     "@sveltejs/adapter-vercel": "npm:^5.5.0"
     "@sveltejs/kit": "npm:^2.0.0"
@@ -2441,7 +2441,7 @@ __metadata:
     "@types/pg": "npm:^8"
     "@xyflow/svelte": "npm:^0.1.26"
     autoprefixer: "npm:^10.4.20"
-    bits-ui: "npm:^1.3.16"
+    bits-ui: "npm:^1.4.1"
     clsx: "npm:^2.1.1"
     date-fns: "npm:^4.1.0"
     dotenv: "npm:^16.4.7"

@@ -58,3 +58,5 @@ For auth, we use [Auth.js](https://authjs.dev/). You can install it by running:
 yarn add @auth/sveltekit
 npx auth secret
 ```
+
+For GCP Run, be sure to execute `poetry export --without-hashes --format=requirements.txt > requirements.txt` before running `gcloud run deploy --source src/gcp`
