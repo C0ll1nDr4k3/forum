@@ -1,0 +1,22 @@
+# Python specific
+*.pyc
+__pycache__/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# IDE/OS specific
+.idea/
+.vscode/
+*.DS_Store
+
+# Cloud Run/Docker specific
+*.log
+
+# Other
+*.md # If you don't need markdown files in the deployment
+.git/
+.gitignore
+.dockerignore # If you have one and want to use .gcloudignore instead

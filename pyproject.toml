@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "forum"
+version = "0.1.0"
+description = ""
+authors = ["cldrake01 <collinlindendrake@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.2"
+pydantic = "^2.11.4"
+sentence-transformers = "^4.1.0"
+torch = "^2.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath="/Users/collin/Library/Caches/pypoetry/virtualenvs"
+venv="forum-Pi0IKqgM-py3.12"

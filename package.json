@@ -21,7 +21,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/pg": "^8",
 		"autoprefixer": "^10.4.20",
-		"bits-ui": "^1.4.1",
+		"bits-ui": "^1.4.3",
 		"clsx": "^2.1.1",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",

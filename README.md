@@ -60,3 +60,9 @@ npx auth secret
 ```
 
 For GCP Run, be sure to execute `poetry export --without-hashes --format=requirements.txt > requirements.txt` before running `gcloud run deploy --source src/gcp`
+
+To deploy to GCP Run, run:
+
+```
+poetry export --without-hashes --format=requirements.txt > src/gcp/requirements.txt && gcloud run deploy --source src/gcp
+```

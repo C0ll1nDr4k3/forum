@@ -1452,9 +1452,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bits-ui@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "bits-ui@npm:1.4.1"
+"bits-ui@npm:^1.4.3":
+  version: 1.4.3
+  resolution: "bits-ui@npm:1.4.3"
   dependencies:
     "@floating-ui/core": "npm:^1.6.4"
     "@floating-ui/dom": "npm:^1.6.7"
@@ -1465,7 +1465,7 @@ __metadata:
     tabbable: "npm:^6.2.0"
   peerDependencies:
     svelte: ^5.11.0
-  checksum: 10c0/2a223be124b27a3ea16ac9f82ae88d4118b9f126d915e2ed3f5ac92bda5ca807e740e6b4de81ca606f811f0f6413b5dd876724c7ac3a456f77723cd3297ce7e1
+  checksum: 10c0/7507e088cea683505f98417f9e8199dc8ff3d70cdfa030a11565a7c686c1b639e14395f3ee9e42d7964219bd51fd7295347bd5f7dadf4e32733c9f3448d812eb
   languageName: node
   linkType: hard
 
@@ -2441,7 +2441,7 @@ __metadata:
     "@types/pg": "npm:^8"
     "@xyflow/svelte": "npm:^0.1.26"
     autoprefixer: "npm:^10.4.20"
-    bits-ui: "npm:^1.4.1"
+    bits-ui: "npm:^1.4.3"
     clsx: "npm:^2.1.1"
     date-fns: "npm:^4.1.0"
     dotenv: "npm:^16.4.7"
