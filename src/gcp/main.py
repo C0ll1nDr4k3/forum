@@ -1,6 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 from typing import List
+import os
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -130,10 +131,10 @@ async def encode_text(payload: TextInput):
         raise HTTPException(status_code=500, detail=f"Failed to encode text: {e}")
 
 
-# --- Optional: Run directly with uvicorn for local testing ---
-# if __name__ == "__main__":
-#     import uvicorn
-#     # Use the PORT environment variable provided by Cloud Run, default to 8080 locally
-#     port = int(os.environ.get("PORT", 8080))
-#     uvicorn.run(app, host="0.0.0.0", port=port)
+# --- Optional: Run directly with uvicorn for	 local testing ---
+if __name__ == "__main__":
+    import uvicorn
+    # Use the PORT environment variable provided by Cloud Run, default to 8080 locally
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 # Note: The Dockerfile's CMD will handle running uvicorn in production.

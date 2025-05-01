@@ -30,7 +30,8 @@ COPY . .
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')"
 
 # Command to run the application using uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "1"]
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "1"]
+CMD ["uv", "run", "main.py"]
 
 # Expose the port the container will listen on
 EXPOSE 8080

@@ -61,8 +61,10 @@ npx auth secret
 
 For GCP Run, be sure to execute `poetry export --without-hashes --format=requirements.txt > requirements.txt` before running `gcloud run deploy --source src/gcp`
 
-To deploy to GCP Run, run:
+GCP redeploys automatically with GitHub, but in case of a dependency change run:
 
 ```
 poetry export --without-hashes --format=requirements.txt > src/gcp/requirements.txt && gcloud run deploy --source src/gcp
 ```
+
+This does require that you have the `gcloud` cli and that you're signed in.
