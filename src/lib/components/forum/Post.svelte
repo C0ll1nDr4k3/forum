@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { format, formatDistance } from "date-fns";
-	import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "$lib/components/ui/card";
+	import {
+		Card,
+		CardContent,
+		CardDescription,
+		CardFooter,
+		CardHeader
+	} from "$lib/components/ui/card";
 	import { Flag, MoreHorizontal } from "lucide-svelte";
 	import { Button } from "$lib/components/ui/button";
 	import {
@@ -13,6 +19,7 @@
 	import PostAttachments from "./PostAttachments.svelte";
 	import ActionBar from "./ActionBar.svelte";
 	import UserAvatar from "$lib/components/UserAvatar.svelte";
+	import SvelteMarkdown from "svelte-markdown";
 
 	const { post, isHighlighted = false } = $props<{
 		post: {
@@ -62,7 +69,9 @@
 						<span title={formatDate(post.created_at, true)}>{formatDate(post.created_at)}</span>
 						{#if post?.created_at && post?.updated_at && post.updated_at !== post.created_at}
 							<span class="text-muted-foreground">•</span>
-							<span title={formatDate(post.updated_at, true)}>edited {formatDate(post.updated_at)}</span>
+							<span title={formatDate(post.updated_at, true)}
+								>edited {formatDate(post.updated_at)}</span
+							>
 						{/if}
 					</CardDescription>
 				</div>
@@ -76,7 +85,7 @@
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem>
-						<Flag class="h-4 w-4 mr-2" />
+						<Flag class="mr-2 h-4 w-4" />
 						<span>Report</span>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
@@ -85,8 +94,8 @@
 	</CardHeader>
 
 	<CardContent>
-		<div class="prose prose-sm max-w-none dark:prose-invert">
-			{@html post.content}
+		<div class="prose prose-sm dark:prose-invert max-w-none">
+			<SvelteMarkdown source={post.content}/>
 		</div>
 
 		<PostAttachments attachments={post.attachments} />

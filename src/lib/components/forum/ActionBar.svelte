@@ -8,7 +8,12 @@
 		DropdownMenuTrigger
 	} from "$lib/components/ui/dropdown-menu";
 
-	const { likes, showReply = true, size = "default", onReplyClick = undefined } = $props<{
+	const {
+		likes,
+		showReply = true,
+		size = "default",
+		onReplyClick = undefined
+	} = $props<{
 		likes: number;
 		showReply?: boolean;
 		size?: "small" | "default";
@@ -20,7 +25,7 @@
 	const iconSize = size === "small" ? "h-3 w-3" : "h-4 w-4";
 </script>
 
-<div class="flex justify-between w-full">
+<div class="flex w-full justify-between">
 	<div class="flex items-center gap-4">
 		<Button variant="ghost" size="sm" class="{buttonSize} flex items-center gap-1">
 			<ThumbsUp class={iconSize} />
@@ -54,7 +59,7 @@
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
 				<DropdownMenuItem>
-					<Flag class="h-4 w-4 mr-2" />
+					<Flag class="mr-2 h-4 w-4" />
 					<span>Report</span>
 				</DropdownMenuItem>
 			</DropdownMenuContent>

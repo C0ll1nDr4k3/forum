@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { writable } from "svelte/store";
-	import { Background, Controls, type Edge, MiniMap, type Node, Position, SvelteFlow } from "@xyflow/svelte";
+	import {
+		Background,
+		Controls,
+		type Edge,
+		MiniMap,
+		type Node,
+		Position,
+		SvelteFlow
+	} from "@xyflow/svelte";
 
 	import ColorSelectorNode from "./ColorSelectorNode.svelte";
 
@@ -84,8 +92,8 @@
 </div>
 
 <style>
-    .graph {
-        /*height: 93.5vh;*/
-        height: 100vh;
-    }
+	.graph {
+		/*height: 93.5vh;*/
+		height: 100vh;
+	}
 </style>

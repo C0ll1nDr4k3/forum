@@ -16,11 +16,14 @@
 	// Handle attachment display logic
 	function getAttachmentPreview(attachment: Attachment) {
 		// Extract file type from fileType or from the file extension in fileUrl
-		const fileType = attachment.fileType ||
-			(attachment.fileUrl.split(".").pop()?.toLowerCase() || "");
+		const fileType =
+			attachment.fileType || attachment.fileUrl.split(".").pop()?.toLowerCase() || "";
 
 		// Determine preview type based on file type
-		if (fileType.includes("image") || ["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(fileType)) {
+		if (
+			fileType.includes("image") ||
+			["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(fileType)
+		) {
 			return { type: "image", url: attachment.fileUrl };
 		} else if (fileType.includes("video") || ["mp4", "webm", "ogg", "mov"].includes(fileType)) {
 			return { type: "video", url: attachment.fileUrl };
@@ -36,18 +39,18 @@
 	<div class="mt-4 grid grid-cols-2 {gridCols} gap-2">
 		{#each attachments as attachment}
 			{@const preview = getAttachmentPreview(attachment)}
-			{#if preview.type === 'image'}
-				<div class="relative aspect-square rounded-md overflow-hidden border bg-muted">
-					<img src={preview.url} alt={preview.name} class="object-cover w-full h-full" />
+			{#if preview.type === "image"}
+				<div class="relative aspect-square overflow-hidden rounded-md border bg-muted">
+					<img src={preview.url} alt={preview.name} class="h-full w-full object-cover" />
 				</div>
-			{:else if preview.type === 'video'}
-				<div class="relative aspect-video rounded-md overflow-hidden border bg-muted">
-					<video src={preview.url} controls class="object-cover w-full h-full">
+			{:else if preview.type === "video"}
+				<div class="relative aspect-video overflow-hidden rounded-md border bg-muted">
+					<video src={preview.url} controls class="h-full w-full object-cover">
 						<track kind="captions" src="" />
 					</video>
 				</div>
 			{:else}
-				<div class="flex items-center p-2 border rounded-md bg-muted">
+				<div class="flex items-center rounded-md border bg-muted p-2">
 					<span class="truncate text-xs">{preview.name}</span>
 				</div>
 			{/if}

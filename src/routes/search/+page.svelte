@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { browser } from "$app/environment"; // To ensure effect runs client-side
 
-	// Import shadcn-svelte components
-	import { Label } from "$lib/components/ui/label";
-	import { Textarea } from "$lib/components/ui/textarea";
+	// --- Core SvelteKit/Svelte ---
+	import { onDestroy } from "svelte";
+
+	// --- UI Components (shadcn-svelte) ---
+	import { Input } from "$lib/components/ui/input"; // Changed from Textarea
 	import { Alert, AlertDescription, AlertTitle } from "$lib/components/ui/alert";
 	import {
 		Card,
@@ -12,8 +14,13 @@
 		CardHeader,
 		CardTitle
 	} from "$lib/components/ui/card";
+	// import { Label } from "$lib/components/ui/label"; // Removed Label for cleaner search look
 
-	// Define the structure of the data we expect back from our OWN /api/encode route
+	// --- Icons (lucide-svelte) ---
+	// You might need to install lucide-svelte: npm install lucide-svelte
+	import { Search, Loader2 } from "lucide-svelte";
+
+	// --- Types ---
 	interface EncodingApiResponse {
 		embedding: number[];
 		model_name: string;
@@ -21,7 +28,7 @@
 	}
 
 	// --- State using Runes ---
-	let inputText = $state("This is a test sentence.");
+	let inputText = $state(""); // Start empty for a search bar
 	let isLoading = $state(false);
 	let errorMessage = $state<string | null>(null);
 	let apiResult = $state<EncodingApiResponse | null>(null);
@@ -29,157 +36,138 @@
 
 	const DEBOUNCE_DELAY = 500; // milliseconds
 
-	// --- Effect for Automatic Encoding ---
+	// --- Effect for Automatic Search/Encoding ---
 	$effect(() => {
-		// Only run in the browser
 		if (!browser) return;
 
-		// Read the state variable to establish dependency
-		const textToEncode = inputText.trim();
+		const textToSearch = inputText.trim();
 
-		// Clear previous timeout if input changes again quickly
 		clearTimeout(debounceTimeoutId);
 
-		// Reset status if input is cleared or too short
-		if (!textToEncode) {
+		if (!textToSearch) {
 			isLoading = false;
 			errorMessage = null;
 			apiResult = null;
-			return; // Don't proceed if input is empty/whitespace
+			return;
 		}
 
-		// Set a new timeout to debounce the API call
 		debounceTimeoutId = setTimeout(async () => {
-			console.log("[Effect] Debounced: Encoding text:", textToEncode);
+			console.log("[Effect] Debounced: Searching/Encoding text:", textToSearch);
 			isLoading = true;
 			errorMessage = null;
-			apiResult = null; // Clear previous result before new request
+			apiResult = null;
 
 			try {
+				// NOTE: Still calling /api/encode. If this were a *real* search,
+				// you'd likely call a different endpoint (e.g., /api/search)
+				// and expect a different response structure (e.g., search results).
 				const response = await fetch("/api/encode", {
-					// Call OUR internal route
 					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({ text: textToEncode }) // Send the trimmed text
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ text: textToSearch })
 				});
 
-				console.log("[Effect] Response status from /api/encode:", response.status);
+				console.log("[Effect] Response status from API:", response.status);
 
 				if (!response.ok) {
 					let errorMsgFromServer = `Request failed with status ${response.status}`;
 					try {
 						const errorBody = await response.json();
 						errorMsgFromServer = errorBody.message || JSON.stringify(errorBody);
-					} catch (e) {
-						try {
-							errorMsgFromServer = await response.text();
-						} catch (e2) {
-							/* ignore */
-						}
+					} catch {
+						// Ignore if response body isn't valid JSON
+						errorMsgFromServer = await response.text();
 					}
 					throw new Error(errorMsgFromServer);
 				}
 
 				const result: EncodingApiResponse = await response.json();
 				console.log("[Effect] Received result:", result);
-				apiResult = result; // Update state with the result
-			} catch (err: any) {
-				console.error("[Effect] Error during fetch:", err);
-				errorMessage = err.message || "An unknown error occurred.";
+				apiResult = result;
+			} catch (err: unknown) {
+                const error = err as Error;
+				console.error("[Effect] Error during fetch:", error);
+				errorMessage = error.message || "An unknown error occurred.";
 				apiResult = null;
 			} finally {
 				isLoading = false;
 			}
 		}, DEBOUNCE_DELAY);
-
-		// Cleanup function for the effect
-		return () => {
-			console.log("[Effect Cleanup] Clearing timeout");
-			clearTimeout(debounceTimeoutId);
-		};
 	});
 
-	// Optional: Function for manual trigger if you keep the button
-	// function triggerManualEncode() {
-	// 	// You could potentially clear the timeout and run immediately,
-	// 	// or just let the debounced effect handle it if the text hasn't changed.
-	// 	// For simplicity, often the effect handles it automatically.
-	// 	console.log("Manual trigger requested (usually handled by effect)");
-	// }
+    // --- Cleanup Effect ---
+    // Ensure timeout is cleared if the component is destroyed
+    onDestroy(() => {
+        clearTimeout(debounceTimeoutId);
+    });
+
 </script>
 
-<!-- Use Tailwind classes for overall layout -->
-<h1 class="text-2xl font-semibold tracking-tight">Text Encoder (Auto)</h1>
+<!-- Use Tailwind for layout -->
+<div class="container mx-auto flex max-w-xl flex-col items-center space-y-4 p-4" style="padding-top: 7.5rem">
+	<h1 class="text-2xl font-semibold tracking-tight">Search Example (using Encoder API)</h1>
 
-<!-- Input Section -->
-<div class="grid w-full gap-1.5">
-	<Label for="text-input">Enter text (encodes automatically after typing stops):</Label>
-	<Textarea
-		id="text-input"
-		placeholder="Type your text here..."
-		bind:value={inputText}
-		disabled={isLoading}
-		rows={4}
-	/>
-	{#if isLoading}
-		<p class="flex items-center text-sm text-muted-foreground">
-			<svg
-				class="-ml-1 mr-2 h-4 w-4 animate-spin text-primary"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-			>
-				<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
-				></circle>
-				<path
-					class="opacity-75"
-					fill="currentColor"
-					d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-				></path>
-			</svg>
-			Encoding...
-		</p>
-	{/if}
-</div>
+	<!-- Search Input Section -->
+	<div class="relative w-full">
+		<!-- Search Icon -->
+		<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+			<Search class="h-5 w-5 text-muted-foreground" />
+		</div>
 
-<!-- Action Button - Optional: Keep if manual trigger is desired -->
-<!--
-	<div>
-		<Button on:click={triggerManualEncode} disabled={isLoading} class="w-full sm:w-auto">
-			Encode Manually (if needed)
-		</Button>
-	</div>
-	-->
+		<!-- Input Field -->
+		<Input
+			type="text"
+			id="search-input"
+			placeholder="Type to search..."
+			bind:value={inputText}
+			disabled={isLoading}
+			class="pl-10 pr-10"
+		/>
 
-<!-- Error Display -->
-{#if errorMessage}
-	<Alert variant="destructive">
-		<AlertTitle>Error</AlertTitle>
-		<AlertDescription>{errorMessage}</AlertDescription>
-	</Alert>
-{/if}
-
-<!-- Result Display -->
-{#if apiResult}
-	<Card class="w-full">
-		<CardHeader>
-			<CardTitle>Encoding Result</CardTitle>
-			<CardDescription>Model: {apiResult.model_name}</CardDescription>
-		</CardHeader>
-		<CardContent>
-			<div class="space-y-2">
-				<p class="text-sm font-medium">
-					Embedding ({apiResult.embedding.length} dimensions total):
-				</p>
-				<pre
-					class="mt-1 max-h-48 overflow-x-auto rounded-md bg-slate-100 p-3 text-sm dark:bg-slate-800">{JSON.stringify(
-						apiResult.embedding.slice(0, 10),
-						null,
-						2
-					)} ...</pre>
+		<!-- Loading Spinner (conditional) -->
+		{#if isLoading}
+			<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+				<Loader2 class="h-5 w-5 animate-spin text-primary" />
 			</div>
-		</CardContent>
-	</Card>
-{/if}
+		{/if}
+	</div>
+
+	<!-- Error Display -->
+	{#if errorMessage}
+		<Alert variant="destructive" class="w-full">
+			<AlertTitle>Error</AlertTitle>
+			<AlertDescription>{errorMessage}</AlertDescription>
+		</Alert>
+	{/if}
+
+	<!-- Result Display (Kept original result display for demonstration) -->
+	{#if apiResult && !isLoading}
+		<Card class="w-full">
+			<CardHeader>
+				<CardTitle>API Result (Encoding)</CardTitle>
+				<CardDescription>Model: {apiResult.model_name}</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<div class="space-y-2">
+					<p class="text-sm font-medium">
+						Embedding ({apiResult.embedding.length} dimensions total):
+					</p>
+					<pre
+						class="mt-1 max-h-48 overflow-x-auto rounded-md bg-slate-100 p-3 text-sm dark:bg-slate-800">{JSON.stringify(
+							apiResult.embedding.slice(0, 10), // Show first 10 dims
+							null,
+							2
+						)} ...</pre>
+				</div>
+			</CardContent>
+		</Card>
+	{/if}
+
+    <!-- Optional: Placeholder when no results and not loading/error -->
+    {#if !apiResult && !isLoading && !errorMessage && inputText.trim()}
+        <p class="text-sm text-muted-foreground">No results found for "{inputText.trim()}" (or API returned empty).</p>
+    {:else if !apiResult && !isLoading && !errorMessage && !inputText.trim()}
+         <p class="text-sm text-muted-foreground">Enter text above to search.</p>
+    {/if}
+
+</div>

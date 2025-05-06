@@ -2,6 +2,7 @@
 	import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card";
 	import { Button } from "$lib/components/ui/button";
 	import { Lock } from "lucide-svelte";
+	import SvelteMarkdown from "svelte-markdown";
 
 	const { isLocked = false } = $props<{
 		isLocked?: boolean;
@@ -35,10 +36,11 @@
 		<CardContent>
 			<form onsubmit={handleSubmit}>
 				<textarea
-					class="w-full min-h-[120px] p-3 border rounded-md bg-background"
-					placeholder="Write your reply here..."
+					class="min-h-[120px] w-full rounded-md border bg-background p-3"
+					placeholder="Write your reply here... We support Markdown, too."
 					bind:value={replyContent}
 				></textarea>
+				<SvelteMarkdown source={replyContent}/>
 				<div class="mt-3 flex gap-2">
 					<Button type="submit">Post Reply</Button>
 					<Button type="button" variant="outline" onclick={handleCancel}>Cancel</Button>
@@ -47,8 +49,8 @@
 		</CardContent>
 	</Card>
 {:else}
-	<div class="mt-8 p-4 border rounded-md bg-muted flex items-center justify-center">
-		<Lock class="h-4 w-4 mr-2" />
+	<div class="mt-8 flex items-center justify-center rounded-md border bg-muted p-4">
+		<Lock class="mr-2 h-4 w-4" />
 		<span>This thread is locked. New replies cannot be added.</span>
 	</div>
 {/if}

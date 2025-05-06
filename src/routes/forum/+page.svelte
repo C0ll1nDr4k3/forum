@@ -13,15 +13,15 @@
 </div>
 
 <style>
-    .threads {
-        /*padding-top: 10rem;*/
-        display: flex;
-        flex-direction: column;
-				align-items: center;
-        gap: 1rem;
-        max-width: 90%;
-        margin-top: 7.5rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	.threads {
+		/*padding-top: 10rem;*/
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		max-width: 90%;
+		margin-top: 7.5rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
 </style>

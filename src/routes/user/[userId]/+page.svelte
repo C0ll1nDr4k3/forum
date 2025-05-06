@@ -49,7 +49,7 @@
 	{/if}
 </svelte:head>
 
-<div class="container mx-auto max-w-3xl p-4 md:p-8">
+<div class="container mx-auto max-w-3xl p-4 md:p-8" style="margin-top: 7.5rem">
 	<Card class="w-full">
 		<CardHeader>
 			<div class="flex flex-col items-center gap-4 sm:flex-row sm:items-start">

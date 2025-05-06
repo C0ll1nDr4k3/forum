@@ -1,7 +1,16 @@
 <script lang="ts">
 	import { Badge } from "$lib/components/ui/badge";
 	import { Button } from "$lib/components/ui/button";
-	import { Bookmark, Calendar, Clock, Flag, Lock, MoreHorizontal, Share2, ThumbsUp } from "lucide-svelte";
+	import {
+		Pin,
+		Calendar,
+		Clock,
+		Flag,
+		Lock,
+		MoreHorizontal,
+		Share2,
+		ThumbsUp
+	} from "lucide-svelte";
 	import { format, formatDistance } from "date-fns";
 	import {
 		DropdownMenu,
@@ -54,8 +63,8 @@
 		<div class="flex gap-2">
 			{#if thread.is_sticky}
 				<Badge variant="secondary" class="flex items-center gap-1">
-					<Bookmark class="h-3 w-3" />
-					<span>Sticky</span>
+					<Pin class="h-3 w-3" />
+					<span>Pinned</span>
 				</Badge>
 			{/if}
 			{#if thread.is_locked}
@@ -103,7 +112,7 @@
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
 				<DropdownMenuItem>
-					<Flag class="h-4 w-4 mr-2" />
+					<Flag class="mr-2 h-4 w-4" />
 					<span>Report</span>
 				</DropdownMenuItem>
 			</DropdownMenuContent>

@@ -18,7 +18,7 @@
 				likes: number;
 			};
 			posts: Post[];
-		}
+		};
 	}>();
 
 	const { thread, posts } = data;
@@ -31,25 +31,22 @@
 	}
 </script>
 
-<div class="container max-w-4xl mx-auto py-6 px-4 sm:px-6">
+<div class="container mx-auto max-w-4xl px-4 py-6 sm:px-6">
 	<!-- Thread Header -->
-	<ThreadHeader thread={thread} />
+	<ThreadHeader {thread} />
 
 	<Separator class="my-6" />
 
 	<!-- Posts List -->
-	<PostList posts={posts} />
+	<PostList {posts} />
 
 	<!-- Reply Form -->
-	<ReplyForm
-		isLocked={thread.is_locked}
-		on:submitReply={handleReplySubmit}
-	/>
+	<ReplyForm isLocked={thread.is_locked} on:submitReply={handleReplySubmit} />
 </div>
 
 <style>
-    .container {
-        margin-top: 7.5rem;
-				max-width: 60%;
-    }
+	.container {
+		margin-top: 7.5rem;
+		max-width: 60%;
+	}
 </style>
